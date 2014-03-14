@@ -7,7 +7,7 @@
 // Set all breakpoints beyond those you will use to the maximum which is 9999px.
 
 // Redefine the breakpoints
-$_breakpoint1:    320px;
+$_breakpoint1:    320px; 
 $_breakpoint2:    480px;
 $_breakpoint3:    768px;
 $_breakpoint4:    9999px;
@@ -35,10 +35,11 @@ $_breakpoint15:   9999px;
 //   - grid_media_max()
 
 // Define the design widths for the devices we intend to use
+// These values work great with a 10px margin
 $desktop: 960px;
-$tablet_p: 768px;
-$mobile_l: 480px;
-$mobile_p: 320px;
+$tablet_p: 762px;
+$mobile_l: 474px;
+$mobile_p: 312px;
 
 //
 // It is only convention that the class takes it's name from the variable list

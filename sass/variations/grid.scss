@@ -1,0 +1,91 @@
+@import "compass";
+@import "blueprint";
+@import "loft_compass/layout";
+
+//
+// In a typical implementation, you will not use all 15 possible breakpoints.
+// Instead you will redefine them like the following.  Notice that you have to
+// Set all breakpoints beyond those you will use to the maximum which is 9999px.
+
+@import "typical";
+
+// Start the declarations
+$min: grid_init(24, 10px, $desktop);
+.container {
+  @include container;
+}
+header {
+  @include column($grid_columns);
+}  
+.column1 {
+  @include column($grid_columns / 3);
+}
+.column2 {
+  @include column($grid_columns / 3);
+}
+.column3 {
+  @include column($grid_columns / 3, true);
+}
+
+// Mobile Portrait
+$min: grid_set_width($mobile_p);
+$max: grid_media_max($mobile_p);
+@media only screen and (min-width: $min) and (max-width: $max) {
+  .container {
+    @include container;
+  }
+  header {
+    @include column($grid_columns);
+  }  
+  .column1 {
+    @include column($grid_columns / 3);
+  }
+  .column2 {
+    @include column($grid_columns / 3);
+  }
+  .column3 {
+    @include column($grid_columns / 3, true);
+  }
+}  
+
+// Mobile Landscape
+$min: grid_set_width($mobile_l);
+$max: grid_media_max($mobile_l);
+@media only screen and (min-width: $min) and (max-width: $max) {
+  .container {
+    @include container;
+  }
+  header {
+    @include column($grid_columns);
+  }  
+  .column1 {
+    @include column($grid_columns / 3);
+  }
+  .column2 {
+    @include column($grid_columns / 3);
+  }
+  .column3 {
+    @include column($grid_columns / 3, true);
+  }
+}  
+
+// Tablet Portrait
+$min: grid_set_width($tablet_p);
+$max: grid_media_max($tablet_p);
+@media only screen and (min-width: $min) and (max-width: $max) {
+  .container {
+    @include container;
+  }
+  header {
+    @include column($grid_columns);
+  }  
+  .column1 {
+    @include column($grid_columns / 3);
+  }
+  .column2 {
+    @include column($grid_columns / 3);
+  }
+  .column3 {
+    @include column($grid_columns / 3, true);
+  }
+}    

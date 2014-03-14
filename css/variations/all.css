@@ -16,105 +16,90 @@
  * @return mixed
  */
 @media only screen and (min-width: 2049px) and (max-width: 2560px) {
-  /* line 9, ../sass/all.scss */
   .desktop-xw {
     display: block;
     background-color: #d1d1d1;
   }
 }
 @media only screen and (min-width: 1921px) and (max-width: 2048px) {
-  /* line 18, ../sass/all.scss */
   .retina-l {
     display: block;
     background-color: #c6c6c6;
   }
 }
 @media only screen and (min-width: 1537px) and (max-width: 1920px) {
-  /* line 27, ../sass/all.scss */
   .desktop-hd {
     display: block;
     background-color: #bbbbbb;
   }
 }
 @media only screen and (min-width: 1281px) and (max-width: 1536px) {
-  /* line 36, ../sass/all.scss */
   .retina-p {
     display: block;
     background-color: #b0b0b0;
   }
 }
 @media only screen and (min-width: 1137px) and (max-width: 1280px) {
-  /* line 45, ../sass/all.scss */
   .desktop-w {
     display: block;
     background-color: #a5a5a5;
   }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1136px) {
-  /* line 54, ../sass/all.scss */
   .iphone5-l {
     display: block;
     background-color: #9a9a9a;
   }
 }
 @media only screen and (min-width: 961px) and (max-width: 1024px) {
-  /* line 63, ../sass/all.scss */
   .desktop {
     display: block;
     background-color: #8f8f8f;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 960px) {
-  /* line 72, ../sass/all.scss */
   .iphone4-l {
     display: block;
     background-color: #848484;
   }
 }
 @media only screen and (min-width: 721px) and (max-width: 768px) {
-  /* line 81, ../sass/all.scss */
   .tablet-p {
     display: block;
     background-color: #797979;
   }
 }
 @media only screen and (min-width: 641px) and (max-width: 720px) {
-  /* line 90, ../sass/all.scss */
   .tablet-10 {
     display: block;
     background-color: #6e6e6e;
   }
 }
 @media only screen and (min-width: 601px) and (max-width: 640px) {
-  /* line 99, ../sass/all.scss */
   .iphone-p {
     display: block;
     background-color: #636363;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 600px) {
-  /* line 108, ../sass/all.scss */
   .tablet-7 {
     display: block;
     background-color: #585858;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  /* line 117, ../sass/all.scss */
   .mobile-l {
     display: block;
     background-color: #4d4d4d;
   }
 }
 @media only screen and (min-width: 241px) and (max-width: 320px) {
-  /* line 126, ../sass/all.scss */
   .mobile-p {
     display: block;
     background-color: #424242;
   }
 }
 @media only screen and (min-width: 0px) and (max-width: 240px) {
-  /* line 135, ../sass/all.scss */
   .mini {
     display: block;
     background-color: #373737;

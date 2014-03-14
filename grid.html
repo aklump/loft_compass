@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Typical Viewports/Breakpoints | Loft Compass extends Compass</title>
+  <title>3 Column Responsive Layout | Loft Compass extends Compass</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -12,26 +12,39 @@
     @import url(http://fonts.googleapis.com/css?family=Codystar);
   </style>
   <style type="text/css" media="all">
-    @import url("css/variations/typical.css");
+    @import url("css/variations/grid.css");
   </style>
 </head>
 <body>
-<h1>Typical Viewports/Breakpoints</h1>
-<p class="red">Window: <span id="window-size"></span>, .container <span id="container-size"></span></p>
+  <div class="container">
+    <header>
+      <h1>3 Column Responsive</h1>
+      <p class="red">Window: <span id="window-size"></span>, .container <span id="container-size"></span></p>
 
 
-<p>Resize your browser window to see the various viewports.  For maximum results use a browser, such as Opera, that allows you to reduce your window width to 0px.</p>
-<h2 class="viewport mobile-p">mobile-p</h2>
-<h2 class="viewport mobile-l">mobile-l</h2>
-<h2 class="viewport tablet-p">tablet-p</h2>
-<h2 class="viewport desktop">desktop</h2>
+<p>Resize your browser window to see the various viewports.  For maximum results use a browser, such as Opera, that allows you to reduce your window width to 0px.</p>    </header>
+  </div>
 
-<nav>
+  <div class="container">
+    <div class="column1">
+      <h3>First</h3>
+    </div>
+    <div class="column2">
+      <h3>Second</h3>
+    </div>
+    <div class="column3">
+      <h3>Third</h3>
+    </div>
+  </div>
+
+  <div class="container">
+  <nav>
   <ul>
     <li><a href="/">Available</a></li>
     <li><a href="typical.html">Typical</a></li>
     <li><a href="grid.html">3 Column Grid</a></li>
   </ul>
-</nav>
+</nav>  </div>
+
 </body>
 </html>

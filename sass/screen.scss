@@ -3,11 +3,15 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 @import "compass";
+@import "blueprint";
 @import "loft_compass/loft";
 
 body {
-  font-family: Codystar, sans-serif;
   text-align: center;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+h1, h2, h3, h4 {
+  font-family: Codystar, sans-serif;
 }
 h1 {
   font-weight: bold;
@@ -18,6 +22,9 @@ nav ul {
   @include horizontal-list;
   margin: 20px
 }
+.red {
+  color: #dd0000;
+}
 .viewport {
   display: none;
   background-color: #666;
@@ -26,8 +33,8 @@ nav ul {
   padding: 50px 0;
   @include font_size(3rem);
 }
-.column {
-  height: 400px;
+.column1, .column2, .column3 {
+  height: 175px;
 }
 .column1 {
   background-color: #0080C9;

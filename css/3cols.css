@@ -1,11 +1,4 @@
 @import url(blueprint/layout.css);
-.container {
-  width: 950px;
-  margin: 0 auto;
-  overflow: hidden;
-  *zoom: 1;
-}
-
 .column {
   display: inline;
   float: left;

@@ -2,5 +2,39 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@import "compass";
+@import "loft_compass/loft";
 
-@import "compass/reset";
+body {
+  font-family: Codystar, sans-serif;
+  text-align: center;
+}
+h1 {
+  font-weight: bold;
+  @include font_size(2rem);
+  margin: 30px auto;
+}
+nav ul {
+  @include horizontal-list;
+  margin: 20px
+}
+.viewport {
+  display: none;
+  background-color: #666;
+  color: #fff;
+  text-align: center;
+  padding: 50px 0;
+  @include font_size(3rem);
+}
+.column {
+  height: 400px;
+}
+.column1 {
+  background-color: #0080C9;
+}
+.column2 {
+  background-color: #009E2D;
+}
+.column3 {
+  background-color: #FECC00;
+}

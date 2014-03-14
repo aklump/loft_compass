@@ -1,0 +1,97 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/**
+ * Output font-size (and line-height) in rem with px fallback
+ *
+ * @param $size
+ *   rem and px: will be converted to rem with px fallback
+ *   % and em will pass through without conversion
+ * @param $line_height
+ *   Optional, behaves same as $size
+ */
+/**
+ * Convert rem to pixels
+ *
+ * @param mixed $rem
+ *
+ * @return mixed
+ */
+/* line 8, ../sass/screen.scss */
+body {
+  font-family: Codystar, sans-serif;
+  text-align: center;
+}
+
+/* line 12, ../sass/screen.scss */
+h1 {
+  font-weight: bold;
+  font-size: 32px;
+  font-size: 2rem;
+  margin: 30px auto;
+}
+
+/* line 17, ../sass/screen.scss */
+nav ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  *zoom: 1;
+  margin: 20px;
+}
+/* line 60, ../../../../../Applications/CodeKit 1.0.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+nav ul li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 48, ../../../../../Applications/CodeKit 1.0.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+nav ul li:first-child, nav ul li.first {
+  padding-left: 0;
+}
+/* line 49, ../../../../../Applications/CodeKit 1.0.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+nav ul li:last-child {
+  padding-right: 0;
+}
+/* line 50, ../../../../../Applications/CodeKit 1.0.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+nav ul li.last {
+  padding-right: 0;
+}
+
+/* line 21, ../sass/screen.scss */
+.viewport {
+  display: none;
+  background-color: #666;
+  color: #fff;
+  text-align: center;
+  padding: 50px 0;
+  font-size: 48px;
+  font-size: 3rem;
+}
+
+/* line 29, ../sass/screen.scss */
+.column {
+  height: 400px;
+}
+
+/* line 32, ../sass/screen.scss */
+.column1 {
+  background-color: #0080C9;
+}
+
+/* line 35, ../sass/screen.scss */
+.column2 {
+  background-color: #009E2D;
+}
+
+/* line 38, ../sass/screen.scss */
+.column3 {
+  background-color: #FECC00;
+}

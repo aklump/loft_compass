@@ -1,0 +1,45 @@
+@import url(blueprint/layout.css);
+/**
+ * Output font-size (and line-height) in rem with px fallback
+ *
+ * @param $size
+ *   rem and px: will be converted to rem with px fallback
+ *   % and em will pass through without conversion
+ * @param $line_height
+ *   Optional, behaves same as $size
+ */
+/**
+ * Convert rem to pixels
+ *
+ * @param mixed $rem
+ *
+ * @return mixed
+ */
+@media only screen and (min-width: 769px) and (max-width: 9999px) {
+  /* line 52, ../sass/typical.scss */
+  .desktop {
+    display: block;
+    background-color: #073A70;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 61, ../sass/typical.scss */
+  .tablet-p {
+    display: block;
+    background-color: #0080C9;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 70, ../sass/typical.scss */
+  .mobile-l {
+    display: block;
+    background-color: #88BCE2;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 320px) {
+  /* line 79, ../sass/typical.scss */
+  .mobile-p {
+    display: block;
+    background-color: #C8E1C2;
+  }
+}

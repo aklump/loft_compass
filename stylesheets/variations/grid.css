@@ -23,21 +23,21 @@
   }
 }
 
-@media only screen and (min-width: 769px) and (max-width: 959px) {
+@media only screen and (min-width: 768px) and (max-width: 959px) {
   .tablet-p {
     display: block;
     background-color: #0080C9;
   }
 }
 
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 480px) and (max-width: 767px) {
   .mobile-l {
     display: block;
     background-color: #88BCE2;
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 479px) {
   .mobile-p {
     display: block;
     background-color: #C8E1C2;
@@ -93,7 +93,7 @@ header {
   overflow-x: hidden;
 }
 
-@media only screen and (min-width: 0px) and (max-width: 480px) {
+@media only screen and (min-width: 0px) and (max-width: 479px) {
   .container {
     width: 302px;
     margin: 0 auto;
@@ -143,7 +143,7 @@ header {
     overflow-x: hidden;
   }
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 480px) and (max-width: 767px) {
   .container {
     width: 464px;
     margin: 0 auto;
@@ -193,7 +193,7 @@ header {
     overflow-x: hidden;
   }
 }
-@media only screen and (min-width: 769px) and (max-width: 959px) {
+@media only screen and (min-width: 768px) and (max-width: 959px) {
   .container {
     width: 752px;
     margin: 0 auto;

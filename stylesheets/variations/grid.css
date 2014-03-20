@@ -51,13 +51,15 @@
   *zoom: 1;
 }
 
+.full-width,
 header {
   display: inline;
   float: left;
   margin-right: 0;
   width: 950px;
 }
-* html header {
+* html .full-width, * html
+header {
   overflow-x: hidden;
 }
 
@@ -99,13 +101,15 @@ header {
     *zoom: 1;
   }
 
+  .full-width,
   header {
     display: inline;
     float: left;
     margin-right: 10px;
     width: 302px;
   }
-  * html header {
+  * html .full-width, * html
+  header {
     overflow-x: hidden;
   }
 
@@ -147,13 +151,15 @@ header {
     *zoom: 1;
   }
 
+  .full-width,
   header {
     display: inline;
     float: left;
     margin-right: 10px;
     width: 464px;
   }
-  * html header {
+  * html .full-width, * html
+  header {
     overflow-x: hidden;
   }
 
@@ -195,13 +201,15 @@ header {
     *zoom: 1;
   }
 
+  .full-width,
   header {
     display: inline;
     float: left;
     margin-right: 10px;
     width: 752px;
   }
-  * html header {
+  * html .full-width, * html
+  header {
     overflow-x: hidden;
   }
 

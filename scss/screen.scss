@@ -45,3 +45,6 @@ nav ul {
 .column3 {
   background-color: #FECC00;
 }
+.responsive-images img {
+  @include responsive_img;
+}

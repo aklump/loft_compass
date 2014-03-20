@@ -50,3 +50,12 @@
   $rem_ratio: 16px / 1rem;
   @return $rem * $rem_ratio;
 }
+
+//
+// A mixin to make an img responsive
+// 
+@mixin responsive_img() {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}

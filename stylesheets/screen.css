@@ -91,3 +91,9 @@ nav ul li.last {
 .column3 {
   background-color: #FECC00;
 }
+
+.responsive-images img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}

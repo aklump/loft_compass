@@ -25,45 +25,78 @@ $grid_margin: 10px;
 $grid_size: 950px;
 
 // 
-// Defines the breakpoints
+// Define the breakpoints and grid widths
 // 
-// There is support for 15 breakpoints + 1 as shown below.  This is overkill and 
+// The first number in the list is the breakpoint:
+// 
+// The second number is the grid width for screens at or below that breakpoint.
+// 
+// How to think about this: When the screen is [value 1] wide, the grid
+// should be [value 2] wide.  Start at the narrow widths first and work up.
+// 
+// As seen below we can say this: When the screen width is 960 pixels, the grid
+// should be 960 pixels.  This is also true: when the screen width is between
+// 769 pixels and 960 pixels, the grid will be 960 pixels.
+// 
+// In reality cols 1 and two will probably not match.  This is dependent upon
+// - gutter width
+// - number of breakpoints
+// - number of columns in the grid
+// 
+// There is support for 15 breakpointsThis is overkill and 
 // is not meant to be taken literally.  Instead you should redefine the
 // breakpoints in a partial further down the chain than this one. 
 // 
 // THIS IS A TEMPLATE AND SHOULD BE COPIED, NOT EDITED
 // 
+// Here is an example of typical usage, notice item 2 is not required when
+// using the extreme of 9999px;
+// 
+//   $_breakpoint1:    320px 312px; 
+//   $_breakpoint2:    480px 474px;
+//   $_breakpoint3:    768px 762px;
+//   $_breakpoint4:    1024px 960px;
+//   $_breakpoint5:    9999px;
+//   $_breakpoint6:    9999px;
+//   $_breakpoint7:    9999px;
+//   $_breakpoint8:    9999px;
+//   $_breakpoint9:    9999px;
+//   $_breakpoint10:   9999px;
+//   $_breakpoint11:   9999px;
+//   $_breakpoint12:   9999px;
+//   $_breakpoint13:   9999px;
+//   $_breakpoint14:   9999px;
+//   $_breakpoint15:   9999px;
+// 
 // http://developer.android.com/guide/practices/screens_support.html
 // http://www.thegraphicmac.com/ios-device-screen-chart-for-developers
 // 
-// @type {px}
+// @type {px} {px}
 // 
-$_breakpoint1:   240px;
-$_breakpoint2:   320px;
-$_breakpoint3:   480px;
-$_breakpoint4:   600px;
-$_breakpoint5:   640px;
-$_breakpoint6:   720px;
-$_breakpoint7:   768px;
-$_breakpoint8:   960px;
-$_breakpoint9: 1024px;
-$_breakpoint10: 1136px;
-$_breakpoint11: 1280px;
-$_breakpoint12: 1536px;
-$_breakpoint13: 1920px;
-$_breakpoint14: 2048px;
-$_breakpoint15: 2560px;
+$_breakpoint1:   240px 240px;
+$_breakpoint2:   320px 320px;
+$_breakpoint3:   480px 480px;
+$_breakpoint4:   600px 600px;
+$_breakpoint5:   640px 640px;
+$_breakpoint6:   720px 720px;
+$_breakpoint7:   768px 768px;
+$_breakpoint8:   960px 960px;
+$_breakpoint9:  1024px 1024px;;
+$_breakpoint10: 1136px 1136px;;
+$_breakpoint11: 1280px 1280px;
+$_breakpoint12: 1536px 1536px;
+$_breakpoint13: 1920px 1920px;
+$_breakpoint14: 2048px 2048px;
+$_breakpoint15: 2560px 2560px;
 
 //
-// Define the grid sizes to use for each device
+// Assign a grid width to each device constant
+// 
+// The values you assign here come from the second list value in $_breakpoint...
 //
 // THIS IS A TEMPLATE AND SHOULD BE COPIED, NOT EDITED
 //
-// In most cases these will map pretty directly to the $_breakpoint variables,
-// however, these numbers might be smaller than the breakpoint if the grid
-// does not take up the full width. Great example is the $desktop which has a
-// breakpoint of 1024 but a grid design of 960px;  YOU MAY SAFELY DELETE ANY
-// VARIABLES THAT YOU DO NOT INTEND TO USE.
+// YOU MAY SAFELY DELETE ANY VARIABLES THAT YOU DO NOT INTEND TO USE.
 //
 // @type {px}
 ///
@@ -207,54 +240,82 @@ $desktop_xw:  2560px;
 // 
 // @return {px}
 // 
-@function grid_media_min($width) {
-  @if $width <= $_breakpoint1 + 1px {
-    @return 0px;
+@function grid_media_min($device) {
+  @if $device == 312px {
+    @return 0;
   }
-  @elseif $width <= $_breakpoint2 + 1px {
-    @return $_breakpoint1 + 1;
+  @elseif $device == 312px {
+    @return 312px;
   }
-  @elseif $width <= $_breakpoint3 + 1px {
-    @return $_breakpoint2 + 1;
+  @elseif $device == 474px {
+    @return 481px;
   }
-  @elseif $width <= $_breakpoint4 + 1px {
-    @return $_breakpoint3 + 1;
+  @elseif $device == 762px {
+    @return 769px;
   }
-  @elseif $width <= $_breakpoint5 + 1px {
-    @return $_breakpoint4 + 1;
-  }
-  @elseif $width <= $_breakpoint6 + 1px {
-    @return $_breakpoint5 + 1;
-  }
-  @elseif $width <= $_breakpoint7 + 1px {
-    @return $_breakpoint6 + 1;
-  }
-  @elseif $width <= $_breakpoint8 + 1px {
-    @return $_breakpoint7 + 1;
-  }
-  @elseif $width <= $_breakpoint9 + 1px {
-    @return $_breakpoint8 + 1;
-  }
-  @elseif $width <= $_breakpoint10 + 1px {
-    @return $_breakpoint9 + 1;
-  }
-  @elseif $width <= $_breakpoint11 + 1px {
-    @return $_breakpoint10 + 1;
-  }
-  @elseif $width <= $_breakpoint12 + 1px {
-    @return $_breakpoint11 + 1;
-  }
-  @elseif $width <= $_breakpoint13 + 1px {
-    @return $_breakpoint12 + 1;
-  }
-  @elseif $width <= $_breakpoint14 + 1px {
-    @return $_breakpoint13 + 1;
-  }
-  @elseif $width <= $_breakpoint15 + 1px {
-    @return $_breakpoint14 + 1;
+  @elseif $device == 960px {
+    @return 960px;
   }
   @else {
-    @return $_breakpoint15 + 1;
+    @return 960px;
+  }
+
+
+
+
+
+
+
+
+
+
+  @if $width <= nth($_breakpoint1, 1) + 1px {
+    @return 0px;
+  }
+  @elseif $width <= nth($_breakpoint2, 1) + 1px {
+    @return nth($_breakpoint1, 1) + 1;
+  }
+  @elseif $width <= nth($_breakpoint3, 1) + 1px {
+    @return nth($_breakpoint2, 1) + 1;
+  }
+  @elseif $width <= nth($_breakpoint4, 1) + 1px {
+    @return nth($_breakpoint3, 1) + 1;
+  }
+  @elseif $width <= nth($_breakpoint5, 1) + 1px {
+    @return nth($_breakpoint4, 1) + 1;
+  }
+  @elseif $width <= nth($_breakpoint6, 1) + 1px {
+    @return nth($_breakpoint5, 1) + 1;
+  }
+  @elseif $width <= nth($_breakpoint7, 1) + 1px {
+    @return nth($_breakpoint6, 1) + 1;
+  }
+  @elseif $width <= nth($_breakpoint8, 1) + 1px {
+    @return nth($_breakpoint7, 1) + 1;
+  }
+  @elseif $width <= nth($_breakpoint9, 1) + 1px {
+    @return nth($_breakpoint8, 1) + 1;
+  }
+  @elseif $width <= nth($_breakpoint10, 1) + 1px {
+    @return nth($_breakpoint9, 1) + 1;
+  }
+  @elseif $width <= nth($_breakpoint11, 1) + 1px {
+    @return nth($_breakpoint10, 1) + 1;
+  }
+  @elseif $width <= nth($_breakpoint12, 1) + 1px {
+    @return nth($_breakpoint11, 1) + 1;
+  }
+  @elseif $width <= nth($_breakpoint13, 1) + 1px {
+    @return nth($_breakpoint12, 1) + 1;
+  }
+  @elseif $width <= nth($_breakpoint14, 1) + 1px {
+    @return nth($_breakpoint13, 1) + 1;
+  }
+  @elseif $width <= nth($_breakpoint15, 1) + 1px {
+    @return nth($_breakpoint14, 1) + 1;
+  }
+  @else {
+    @return nth($_breakpoint15, 1) + 1;
   }
 }
 
@@ -265,53 +326,81 @@ $desktop_xw:  2560px;
 // 
 // @return {px}
 // 
-@function grid_media_max($width) {
-  @if $width > $_breakpoint15 + 1 {
+@function grid_media_max($device) {
+  @if $device == 312px {
+    @return 480px;
+  }
+  @elseif $device == 474px {
+    @return 768px;
+  }
+  @elseif $device == 762px {
+    @return 959px;
+  }
+  @elseif $device == 960px {
     @return 9999px;
   }
-  @elseif $width > $_breakpoint14 + 1 {
-    @return $_breakpoint15;
+  @else {
+    @return 9999px;
   }
-  @elseif $width > $_breakpoint13 + 1 {
-    @return $_breakpoint14;
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @if $width > nth($_breakpoint15, 1) + 1 {
+    @return 9999px;
   }
-  @elseif $width > $_breakpoint12 + 1 {
-    @return $_breakpoint13;
+  @elseif $width > nth($_breakpoint14, 1) + 1 {
+    @return nth($_breakpoint15, 1);
   }
-  @elseif $width > $_breakpoint11 + 1 {
-    @return $_breakpoint12;
+  @elseif $width > nth($_breakpoint13, 1) + 1 {
+    @return nth($_breakpoint14, 1);
   }
-  @elseif $width > $_breakpoint10 + 1 {
-    @return $_breakpoint11;
+  @elseif $width > nth($_breakpoint12, 1) + 1 {
+    @return nth($_breakpoint13, 1);
   }
-  @elseif $width > $_breakpoint9 + 1 {
-    @return $_breakpoint10;
+  @elseif $width > nth($_breakpoint11, 1) + 1 {
+    @return nth($_breakpoint12, 1);
   }
-  @elseif $width > $_breakpoint8 + 1 {
-    @return $_breakpoint9;
+  @elseif $width > nth($_breakpoint10, 1) + 1 {
+    @return nth($_breakpoint11, 1);
   }
-  @elseif $width > $_breakpoint7 + 1 {
-    @return $_breakpoint8;
+  @elseif $width > nth($_breakpoint9, 1) + 1 {
+    @return nth($_breakpoint10, 1);
   }
-  @elseif $width > $_breakpoint6 + 1 {
-    @return $_breakpoint7;
+  @elseif $width > nth($_breakpoint8, 1) + 1 {
+    @return nth($_breakpoint9, 1);
   }
-  @elseif $width > $_breakpoint5 + 1 {
-    @return $_breakpoint6;
+  @elseif $width > nth($_breakpoint7, 1) + 1 {
+    @return nth($_breakpoint8, 1);
   }
-  @elseif $width > $_breakpoint4 + 1 {
-    @return $_breakpoint5;
+  @elseif $width > nth($_breakpoint6, 1) + 1 {
+    @return nth($_breakpoint7, 1);
   }
-  @elseif $width > $_breakpoint3 + 1 {
-    @return $_breakpoint4;
+  @elseif $width > nth($_breakpoint5, 1) + 1 {
+    @return nth($_breakpoint6, 1);
   }
-  @elseif $width > $_breakpoint2 + 1 {
-    @return $_breakpoint3;
+  @elseif $width > nth($_breakpoint4, 1) + 1 {
+    @return nth($_breakpoint5, 1);
   }
-  @elseif $width > $_breakpoint1 + 1 {
-    @return $_breakpoint2;
+  @elseif $width > nth($_breakpoint3, 1) + 1 {
+    @return nth($_breakpoint4, 1);
+  }
+  @elseif $width > nth($_breakpoint2, 1) + 1 {
+    @return nth($_breakpoint3, 1);
+  }
+  @elseif $width > nth($_breakpoint1, 1) + 1 {
+    @return nth($_breakpoint2, 1);
   }
   @else {
-    @return $_breakpoint1;
+    @return nth($_breakpoint1, 1);
   }
 }

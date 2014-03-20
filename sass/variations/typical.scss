@@ -6,12 +6,12 @@
 // Instead you will redefine them like the following.  Notice that you have to
 // Set all breakpoints beyond those you will use to the maximum which is 9999px.
 
-// Redefine the breakpoints
-$_breakpoint1:    320px; 
-$_breakpoint2:    480px;
-$_breakpoint3:    768px;
-$_breakpoint4:    9999px;
-$_breakpoint5:    9999px;
+// Redefine the breakpoints and grid widths
+$_breakpoint1:    0 312px; 
+$_breakpoint2:    321px 312px;
+$_breakpoint3:    481px 474px;
+$_breakpoint4:    769px 768px;
+$_breakpoint5:    9999px 960px;
 $_breakpoint6:    9999px;
 $_breakpoint7:    9999px;
 $_breakpoint8:    9999px;
@@ -34,8 +34,9 @@ $_breakpoint15:   9999px;
 //   - grid_media_min()
 //   - grid_media_max()
 
-// Define the design widths for the devices we intend to use
-// These values work great with a 10px margin
+// Define the design widths for the devices we intend to use.
+// These numbers should match the grid widths defined in $_breakpoint...
+// The values shown below work great with a 10px margin between columns.
 $desktop: 960px;
 $tablet_p: 762px;
 $mobile_l: 474px;

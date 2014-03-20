@@ -15,7 +15,7 @@ $min: grid_init(24, 10px, $desktop);
   @include container;
 }
 header {
-  @include column($grid_columns);
+  @include column($grid_columns, true);
 }  
 .column1 {
   @include column($grid_columns / 3);

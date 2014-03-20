@@ -1,0 +1,412 @@
+@import "blueprint/layout.css";
+
+// THINGS TO NOTE
+// 
+// 1) Always place the following line at the top of a partial where you want
+// to utilize a grid (after @import statements).
+// 
+//    $min: grid_init(24, 10px, $desktop);
+//    
+// this will insure that you are on the grid you're expecting
+
+// 
+// Global Vars & Default values
+// 
+// DO NOT change these defaults, you should call grid_init() from
+// within partials/layout (or somewhere else) and leave these alone.
+// These defaults are required to be here for sass to compile correctly.
+// 
+$grid_columns: 24;
+$grid_two_thirds: 16;
+$grid_half: 12;
+$grid_third: 8;
+$grid_quarter: 6;
+$grid_margin: 10px;
+$grid_size: 950px;
+
+// This is the extreme max for media queries
+$extreme_max: 100000px;
+
+// 
+// Define the breakpoints and grid widths
+// 
+// The first number in the list is the breakpoint or minimum width.
+// List item 1 of $_breakpoint1 must always be 0.
+// 
+// The second number is the grid width for devices at or below that breakpoint.
+// 
+// How to think about this: When the screen is [value 1] wide, the grid
+// should be [value 2] wide.  Start at the narrow widths first and work up.
+// 
+// As seen below we can say this: When the screen width is 960 pixels, the grid
+// should be 960 pixels.  This is also true: when the screen width is between
+// 769 pixels and 960 pixels, the grid will be 960 pixels.
+// 
+// In reality cols 1 and two will probably not match.  This is dependent upon
+// - gutter width
+// - number of breakpoints
+// - number of columns in the grid
+// 
+// There is support for 15 breakpointsThis is overkill and 
+// is not meant to be taken literally.  Instead you should redefine the
+// breakpoints in a partial further down the chain than this one. 
+// 
+// THIS IS A TEMPLATE AND SHOULD BE COPIED, NOT EDITED
+// 
+// Here is an example of typical usage; for those breakpoints you will not
+// be using you must set as $extreme_max $extreme_max.
+// 
+//   $_breakpoint1:    0 312px; 
+//   $_breakpoint2:    321px 312px;
+//   $_breakpoint3:    481px 474px;
+//   $_breakpoint4:    769px 762px;
+//   $_breakpoint5:    960px 960px;
+//   $_breakpoint6:    $extreme_max $extreme_max;
+//   $_breakpoint7:    $extreme_max $extreme_max;
+//   $_breakpoint8:    $extreme_max $extreme_max;
+//   $_breakpoint9:    $extreme_max $extreme_max;
+//   $_breakpoint10:   $extreme_max $extreme_max;
+//   $_breakpoint11:   $extreme_max $extreme_max;
+//   $_breakpoint12:   $extreme_max $extreme_max;
+//   $_breakpoint13:   $extreme_max $extreme_max;
+//   $_breakpoint14:   $extreme_max $extreme_max;
+//   $_breakpoint15:   $extreme_max $extreme_max;
+// 
+// http://developer.android.com/guide/practices/screens_support.html
+// http://www.thegraphicmac.com/ios-device-screen-chart-for-developers
+// 
+// @type {px} {px}
+// 
+$_breakpoint1:   0 240px;
+$_breakpoint2:   321px 320px;
+$_breakpoint3:   481px 480px;
+$_breakpoint4:   601px 600px;
+$_breakpoint5:   641px 640px;
+$_breakpoint6:   721px 720px;
+$_breakpoint7:   769px 768px;
+$_breakpoint8:   961px 960px;
+$_breakpoint9:  1025px 1024px;;
+$_breakpoint10: 1137px 1136px;;
+$_breakpoint11: 1281px 1280px;
+$_breakpoint12: 1537px 1536px;
+$_breakpoint13: 1921px 1920px;
+$_breakpoint14: 2049px 2048px;
+$_breakpoint15: 2561px 2560px;
+
+//
+// Assign a grid width to each device constant
+// 
+// The values you assign here come from the second list value in $_breakpoint...
+//
+// THIS IS A TEMPLATE AND SHOULD BE COPIED, NOT EDITED
+//
+// YOU MAY SAFELY DELETE ANY VARIABLES THAT YOU DO NOT INTEND TO USE.
+//
+// @type {px}
+///
+$mini:        240px;
+$mobile_p:    320px;
+$mobile_l:    480px;
+$tablet_7:    600px;
+$iphone_p:    640px;
+$tablet_10:   720px;
+$tablet_p:    768px;
+$iphone4_l:   960px;
+$desktop:     1024px;
+$iphone5_l:   1136px;
+$desktop_w:   1280px;
+$retina_p:    1536px;
+$desktop_hd:  1920px;
+$retina_l:    2048px;
+$desktop_xw:  2560px;
+
+// 
+// Reverse the effects of @include last
+// 
+@mixin unlast() {
+  margin-right: $blueprint-grid-margin;
+}
+
+//
+// Apply necessary media queries to target a single device:
+// 
+// @param {px} $device A device constant.
+// 
+// @code
+//   .desktop {
+//     @include target_device($desktop) {
+//       display: block;
+//       background-color: #073A70;    
+//     }
+//   }
+// @endcode
+// 
+// The above is shorthand for:
+// @code
+//   $min: grid_media_min($desktop);
+//   $max: grid_media_max($desktop);
+//   @media only screen and (min-width: $min) and (max-width: $max) {
+//     .desktop {
+//       display: block;
+//       background-color: #073A70; 
+//     }
+//   }
+// @endcode
+// 
+// This is inspired by http://breakpoint-sass.com/
+// 
+@mixin target_device($device) {
+  $min: grid_media_min($device);
+  $max: grid_media_max($device);
+  @if $min == 0 {
+    @if $max == $extreme_max {
+      @media only screen {
+        @content;
+      }          
+    }
+    @else {
+      @media only screen and (max-width: $max) {
+        @content;
+      }
+    }
+  }
+  @elseif $max == $extreme_max {
+    @if $min == 0 {
+      @media only screen {
+        @content;
+      }
+    }        
+    @else {
+      @media only screen and (min-width: $min) {
+        @content;
+      }        
+    }
+  }
+  @else {
+    @media only screen and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  }
+}
+
+// 
+// Initialize a grid
+// 
+// PUT THIS AT THE TOP OF EACH PARTIAL WHERE YOU WILL BE USING grid_set_width()
+// 
+// @param int $columns
+//   Total number of columns
+// @param int $margin
+//   Total margin between columns, e.g. 10px
+// @param int $size
+//   The total width for this grid to occupy, e.g. 960px
+//   E.g. 24 column grid will equal 950 pixels with 5px on left and right. And
+//   10px between each column. Initialize said grid as in the code example below.
+// 
+// @return
+//   The value of $size + $grid_margin; use for min-width: in media queries
+// 
+// Call this like such:
+// @code
+// $width: grid_init(24, 10px, 960px);
+// $prev_width: $width;
+// @endcode
+// 
+// This function usually need only be called once.
+// 
+// These vars are made available
+// - $grid_columns: total column count
+// - $grid_margin: margin between columns
+// - $grid_width: width of a single column
+// - $grid_size: total of all columns, less left/right margins
+// - $grid_half: column count for 1/2 width
+// - $grid_third: column count for 1/3 width
+// - $grid_quarter: column count for 1/4 width
+// 
+// @see grid_width()
+// 
+@function grid_init($columns, $margin, $size) {
+
+  // Assign the values to our shorter, underscored vars, yet pass the vars into
+  // blueprint as well...
+  $grid_initial_width: $size;
+
+  $grid_columns: $columns;
+  $blueprint-grid-columns: $columns;
+
+  $grid_margin: $margin;
+  $blueprint-grid-margin: $margin;
+
+  $grid_size: $size;
+  $blueprint-container-size: $size;
+
+  $grid_half: floor($grid_columns / 2);
+  $grid_third: floor($grid_columns / 3);
+  $grid_quarter: floor($grid_columns / 4);
+
+  @return grid_set_width($grid_size);
+}
+
+// 
+// Set the grid width, keeping the other elements the same as grid_init()
+// 
+// This should only be called AFTER grid_init. You need to call these in the
+// order of widest to most narrow if you are using the $width/$prev_width
+// design as described below.  This needs to be called anytime
+// you are going to do media queries based on a new width. This should be the
+// total width you want to occupy, $grid_margin will be deducted from $size to
+// determine $grid_size.
+// 
+// @param $size
+//   e.g. 768px, 960px, etc.
+// 
+// @return int The number to use a min-value in a media query for this
+// 
+// @see grid_media_min()
+// @see grid_media_max()
+// 
+// Call this like such:
+// @code
+//   $width: grid_set_width($desktop);
+//   // ... add some css for desktop width
+//   
+//   $min: grid_set_width($tablet_p);
+//   $max_width: grid_media_max($tablet_p);
+//   @media only screen and (min-width: $min_width) and (max-width: $max_width) {
+//     // ... now add some css for tablet portrait
+//   }
+
+//   // ... and so forth down the line for your width vars: wide to narrow
+// @endcode
+// 
+// Call this just before declaring media queries on a new viewport
+// 
+@function grid_set_width($size) {
+
+  // Assign the values to our shorter, underscored vars, yet pass the vars into
+  // blueprint as well...
+
+  // The width of all columns less left/right margins
+  $grid_size: $size - $grid_margin;
+  $blueprint-container-size: $grid_size;
+
+  // The width of each grid
+  $grid_width: ($grid_size + $grid_margin) / $grid_columns - $grid_margin;
+  $blueprint-grid-width: $grid_width;
+
+  $blueprint-grid-outer-width: $blueprint-grid-width + $blueprint-grid-margin;
+
+  @return grid_media_min($size);
+}
+
+// 
+// Returns the value to use in min-width media queries for a px value
+// 
+// @param  {px} $width
+// 
+// @return {px}
+// 
+@function grid_media_min($device) {
+  @if $device <= nth($_breakpoint1, 2) {
+    // Hardcoded as 0px
+    @return 0px;
+  }
+  @elseif $device <= nth($_breakpoint2, 2) {
+     @return nth($_breakpoint2, 1);
+  }
+  @elseif $device <= nth($_breakpoint3, 2) {
+    @return nth($_breakpoint3, 1);
+  }
+  @elseif $device <= nth($_breakpoint4, 2) {
+    @return nth($_breakpoint4, 1);
+  }
+  @elseif $device <= nth($_breakpoint5, 2) {
+    @return nth($_breakpoint5, 1);
+  }
+  @elseif $device <= nth($_breakpoint6, 2) {
+    @return nth($_breakpoint6, 1);
+  }
+  @elseif $device <= nth($_breakpoint7, 2) {
+    @return nth($_breakpoint7, 1);
+  }
+  @elseif $device <= nth($_breakpoint8, 2) {
+    @return nth($_breakpoint8, 1);
+  }
+  @elseif $device <= nth($_breakpoint9, 2) {
+    @return nth($_breakpoint9, 1);
+  }
+  @elseif $device <= nth($_breakpoint10, 2) {
+    @return nth($_breakpoint10, 1);
+  }
+  @elseif $device <= nth($_breakpoint11, 2) {
+    @return nth($_breakpoint11, 1);
+  }
+  @elseif $device <= nth($_breakpoint12, 2) {
+    @return nth($_breakpoint12, 1);
+  }
+  @elseif $device <= nth($_breakpoint13, 2) {
+    @return nth($_breakpoint13, 1);
+  }
+  @elseif $device <= nth($_breakpoint14, 2) {
+    @return nth($_breakpoint14, 1);
+  }
+  @else {
+    @return nth($_breakpoint15, 1);
+  }
+}
+
+// 
+// Returns the value to use in max-width media queries for a px value
+// 
+// @param  {px} $width
+// 
+// @return {px}
+// 
+@function grid_media_max($device) {
+  @if $device >= nth($_breakpoint15, 2) {
+    // hardcoded as upper extreme $extreme_max
+    @return $extreme_max;
+  }
+  @elseif $device >= nth($_breakpoint14, 2) {
+    @return nth($_breakpoint15, 1) - 1px;
+  }
+  @elseif $device >= nth($_breakpoint13, 2) {
+    @return nth($_breakpoint14, 1) - 1px;
+  }
+  @elseif $device >= nth($_breakpoint12, 2) {
+    @return nth($_breakpoint13, 1) - 1px;
+  }
+  @elseif $device >= nth($_breakpoint11, 2) {
+    @return nth($_breakpoint12, 1) - 1px;
+  }
+  @elseif $device >= nth($_breakpoint10, 2) {
+    @return nth($_breakpoint11, 1) - 1px;
+  }
+  @elseif $device >= nth($_breakpoint9, 2) {
+    @return nth($_breakpoint10, 1) - 1px;
+  }
+  @elseif $device >= nth($_breakpoint8, 2) {
+    @return nth($_breakpoint9, 1) - 1px;
+  }
+  @elseif $device >= nth($_breakpoint7, 2) {
+    @return nth($_breakpoint8, 1) - 1px;
+  }
+  @elseif $device >= nth($_breakpoint6, 2) {
+    @return nth($_breakpoint7, 1) - 1px;
+  }
+  @elseif $device >= nth($_breakpoint5, 2) {
+    @return nth($_breakpoint6, 1) - 1px;
+  }
+  @elseif $device >= nth($_breakpoint4, 2) {
+    @return nth($_breakpoint5, 1) - 1px;
+  }
+  @elseif $device >= nth($_breakpoint3, 2) {
+    @return nth($_breakpoint4, 1) - 1px;
+  }
+  @elseif $device >= nth($_breakpoint2, 2) {
+    @return nth($_breakpoint3, 1) - 1px;
+  }
+  @else {
+    @return nth($_breakpoint2, 1) - 1px;
+  }
+}

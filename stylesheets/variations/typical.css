@@ -15,25 +15,28 @@
  *
  * @return mixed
  */
-@media only screen and (min-width: 769px) and (max-width: 9999px) {
+@media only screen and (min-width: 960px) and (max-width: 99999px) {
   .desktop {
     display: block;
     background-color: #073A70;
   }
 }
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+
+@media only screen and (min-width: 769px) and (max-width: 959px) {
   .tablet-p {
     display: block;
     background-color: #0080C9;
   }
 }
-@media only screen and (min-width: 321px) and (max-width: 480px) {
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
   .mobile-l {
     display: block;
     background-color: #88BCE2;
   }
 }
-@media only screen and (min-width: 0px) and (max-width: 320px) {
+
+@media only screen and (max-width: 480px) {
   .mobile-p {
     display: block;
     background-color: #C8E1C2;

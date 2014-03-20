@@ -1,0 +1,75 @@
+@import "loft_compass/loft";
+@import "loft_compass/layout";
+
+//
+// In a typical implementation, you will not use all 15 possible breakpoints.
+// Instead you will redefine them like the following.  Notice that you have to
+// Set all breakpoints beyond those you will use to the maximum which is $extreme_max.
+
+// Redefine the breakpoints and grid widths
+$_breakpoint1:    0 312px; 
+$_breakpoint2:    321px 312px;
+$_breakpoint3:    481px 474px;
+$_breakpoint4:    769px 762px;
+$_breakpoint5:    960px 960px;
+$_breakpoint6:    $extreme_max $extreme_max;
+$_breakpoint7:    $extreme_max $extreme_max;
+$_breakpoint8:    $extreme_max $extreme_max;
+$_breakpoint9:    $extreme_max $extreme_max;
+$_breakpoint10:   $extreme_max $extreme_max;
+$_breakpoint11:   $extreme_max $extreme_max;
+$_breakpoint12:   $extreme_max $extreme_max;
+$_breakpoint13:   $extreme_max $extreme_max;
+$_breakpoint14:   $extreme_max $extreme_max;
+$_breakpoint15:   $extreme_max $extreme_max;
+
+//
+// The next step is to define the width of our design for each device that we
+// intend to use.  When using the grid aspect, this becomes the outer grid
+// width.
+// 
+// You will pass these variables as the width argument to these functions:
+//   - grid_init()
+//   - grid_set_width()
+//   - grid_media_min()
+//   - grid_media_max()
+
+// Define the design widths for the devices we intend to use.
+// These numbers should match the grid widths defined in $_breakpoint...
+// The values shown below work great with a 10px margin between columns.
+$desktop: 960px;
+$tablet_p: 762px;
+$mobile_l: 474px;
+$mobile_p: 312px;
+
+//
+// It is only convention that the class takes it's name from the variable list
+// above.  It's up to you as to how to implement.
+// 
+// Notice in these examples instead of using @media query, we us the 
+// target_device mixin.  Compare this to all.scss
+// 
+.desktop {
+  @include target_device($desktop) {
+    display: block;
+    background-color: #073A70;    
+  }
+}
+.tablet-p {
+  @include target_device($tablet_p) {
+    display: block;
+    background-color: #0080C9;    
+  }
+}
+.mobile-l {
+  @include target_device($mobile_l) {
+    display: block;
+    background-color: #88BCE2;      
+  }
+}
+.mobile-p {
+  @include target_device($mobile_p) {
+    display: block;
+    background-color: #C8E1C2;    
+  }
+}

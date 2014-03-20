@@ -15,91 +15,91 @@
  *
  * @return mixed
  */
-@media only screen and (min-width: 2049px) and (max-width: 2560px) {
+@media only screen and (min-width: 2561px) and (max-width: 100000px) {
   .desktop-xw {
     display: block;
     background-color: #d1d1d1;
   }
 }
-@media only screen and (min-width: 1921px) and (max-width: 2048px) {
+@media only screen and (min-width: 2049px) and (max-width: 2560px) {
   .retina-l {
     display: block;
     background-color: #c6c6c6;
   }
 }
-@media only screen and (min-width: 1537px) and (max-width: 1920px) {
+@media only screen and (min-width: 1921px) and (max-width: 2048px) {
   .desktop-hd {
     display: block;
     background-color: #bbbbbb;
   }
 }
-@media only screen and (min-width: 1281px) and (max-width: 1536px) {
+@media only screen and (min-width: 1537px) and (max-width: 1920px) {
   .retina-p {
     display: block;
     background-color: #b0b0b0;
   }
 }
-@media only screen and (min-width: 1137px) and (max-width: 1280px) {
+@media only screen and (min-width: 1281px) and (max-width: 1536px) {
   .desktop-w {
     display: block;
     background-color: #a5a5a5;
   }
 }
-@media only screen and (min-width: 1025px) and (max-width: 1136px) {
+@media only screen and (min-width: 1137px) and (max-width: 1280px) {
   .iphone5-l {
     display: block;
     background-color: #9a9a9a;
   }
 }
-@media only screen and (min-width: 961px) and (max-width: 1024px) {
+@media only screen and (min-width: 1025px) and (max-width: 1136px) {
   .desktop {
     display: block;
     background-color: #8f8f8f;
   }
 }
-@media only screen and (min-width: 769px) and (max-width: 960px) {
+@media only screen and (min-width: 961px) and (max-width: 1024px) {
   .iphone4-l {
     display: block;
     background-color: #848484;
   }
 }
-@media only screen and (min-width: 721px) and (max-width: 768px) {
+@media only screen and (min-width: 769px) and (max-width: 960px) {
   .tablet-p {
     display: block;
     background-color: #797979;
   }
 }
-@media only screen and (min-width: 641px) and (max-width: 720px) {
+@media only screen and (min-width: 721px) and (max-width: 768px) {
   .tablet-10 {
     display: block;
     background-color: #6e6e6e;
   }
 }
-@media only screen and (min-width: 601px) and (max-width: 640px) {
+@media only screen and (min-width: 641px) and (max-width: 720px) {
   .iphone-p {
     display: block;
     background-color: #636363;
   }
 }
-@media only screen and (min-width: 481px) and (max-width: 600px) {
+@media only screen and (min-width: 601px) and (max-width: 640px) {
   .tablet-7 {
     display: block;
     background-color: #585858;
   }
 }
-@media only screen and (min-width: 321px) and (max-width: 480px) {
+@media only screen and (min-width: 481px) and (max-width: 600px) {
   .mobile-l {
     display: block;
     background-color: #4d4d4d;
   }
 }
-@media only screen and (min-width: 241px) and (max-width: 320px) {
+@media only screen and (min-width: 321px) and (max-width: 480px) {
   .mobile-p {
     display: block;
     background-color: #424242;
   }
 }
-@media only screen and (min-width: 0px) and (max-width: 240px) {
+@media only screen and (min-width: 0px) and (max-width: 320px) {
   .mini {
     display: block;
     background-color: #373737;

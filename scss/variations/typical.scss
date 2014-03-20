@@ -4,24 +4,24 @@
 //
 // In a typical implementation, you will not use all 15 possible breakpoints.
 // Instead you will redefine them like the following.  Notice that you have to
-// Set all breakpoints beyond those you will use to the maximum which is 9999px.
+// Set all breakpoints beyond those you will use to the maximum which is $extreme_max.
 
 // Redefine the breakpoints and grid widths
 $_breakpoint1:    0 312px; 
 $_breakpoint2:    321px 312px;
 $_breakpoint3:    481px 474px;
-$_breakpoint4:    769px 768px;
-$_breakpoint5:    9999px 960px;
-$_breakpoint6:    9999px;
-$_breakpoint7:    9999px;
-$_breakpoint8:    9999px;
-$_breakpoint9:    9999px;
-$_breakpoint10:   9999px;
-$_breakpoint11:   9999px;
-$_breakpoint12:   9999px;
-$_breakpoint13:   9999px;
-$_breakpoint14:   9999px;
-$_breakpoint15:   9999px;
+$_breakpoint4:    769px 762px;
+$_breakpoint5:    960px 960px;
+$_breakpoint6:    $extreme_max $extreme_max;
+$_breakpoint7:    $extreme_max $extreme_max;
+$_breakpoint8:    $extreme_max $extreme_max;
+$_breakpoint9:    $extreme_max $extreme_max;
+$_breakpoint10:   $extreme_max $extreme_max;
+$_breakpoint11:   $extreme_max $extreme_max;
+$_breakpoint12:   $extreme_max $extreme_max;
+$_breakpoint13:   $extreme_max $extreme_max;
+$_breakpoint14:   $extreme_max $extreme_max;
+$_breakpoint15:   $extreme_max $extreme_max;
 
 //
 // The next step is to define the width of our design for each device that we
@@ -46,40 +46,30 @@ $mobile_p: 312px;
 // It is only convention that the class takes it's name from the variable list
 // above.  It's up to you as to how to implement.
 // 
-
-// Now make some declarations about visibility by device class
-$min: grid_media_min($desktop);
-$max: grid_media_max($desktop);
-@media only screen and (min-width: $min) and (max-width: $max) {
-  .desktop {
+// Notice in these examples instead of using @media query, we us the 
+// target_device mixin.  Compare this to all.scss
+// 
+.desktop {
+  @include target_device($desktop) {
     display: block;
-    background-color: #073A70;
+    background-color: #073A70;    
   }
 }
-
-$min: grid_media_min($tablet_p);
-$max: grid_media_max($tablet_p);
-@media only screen and (min-width: $min) and (max-width: $max) {
-  .tablet-p {
+.tablet-p {
+  @include target_device($tablet_p) {
     display: block;
-    background-color: #0080C9;
+    background-color: #0080C9;    
   }
 }
-
-$min: grid_media_min($mobile_l);
-$max: grid_media_max($mobile_l);
-@media only screen and (min-width: $min) and (max-width: $max) {
-  .mobile-l {
+.mobile-l {
+  @include target_device($mobile_l) {
     display: block;
-    background-color: #88BCE2;
+    background-color: #88BCE2;      
   }
 }
-
-$min: grid_media_min($mobile_p);
-$max: grid_media_max($mobile_p);
-@media only screen and (min-width: $min) and (max-width: $max) {
-  .mobile-p {
+.mobile-p {
+  @include target_device($mobile_p) {
     display: block;
-    background-color: #C8E1C2;
+    background-color: #C8E1C2;    
   }
 }

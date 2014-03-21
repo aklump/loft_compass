@@ -2,22 +2,6 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/**
- * Output font-size (and line-height) in rem with px fallback
- *
- * @param $size
- *   rem and px: will be converted to rem with px fallback
- *   % and em will pass through without conversion
- * @param $line_height
- *   Optional, behaves same as $size
- */
-/**
- * Convert rem to pixels
- *
- * @param mixed $rem
- *
- * @return mixed
- */
 body {
   text-align: center;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;

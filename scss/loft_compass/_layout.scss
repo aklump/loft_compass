@@ -1,5 +1,3 @@
-@import "blueprint/layout.css";
-
 // THINGS TO NOTE
 // 
 // 1) Always place the following line at the top of a partial where you want
@@ -27,13 +25,40 @@ $grid_size: 950px;
 // This is the extreme max for media queries
 $media_max_top: 100000px;
 
+//
+// Assign a design width to each device constant
+// 
+// The values you assign here must be used as the second list value in $_breakpoint...
+//
+// THIS IS A TEMPLATE AND SHOULD BE COPIED, NOT EDITED
+//
+// AFTER COPYING, YOU MAY SAFELY DELETE ANY VARIABLES THAT YOU DO NOT INTEND TO USE.
+//
+// @type {px}
+//
+$mini:        240px;
+$mobile_p:    320px;
+$mobile_l:    480px;
+$tablet_7:    600px;
+$iphone_p:    640px;
+$tablet_10:   720px;
+$tablet_p:    768px;
+$iphone4_l:   960px;
+$desktop:     1024px;
+$iphone5_l:   1136px;
+$desktop_w:   1280px;
+$retina_p:    1536px;
+$desktop_hd:  1920px;
+$retina_l:    2048px;
+$desktop_xw:  2560px;
+
 // 
 // Define the breakpoints and grid widths
 // 
 // The first number in the list is the breakpoint or minimum width of the viewport.
 // List item 1 of $_breakpoint1 must always be 0.
 // 
-// The second number is the grid width for that viewport.
+// The second number is the grid width for that viewport; it comes from above.
 // 
 // How to think about this: When the screen is [value 1] wide, the grid
 // should be [value 2] wide.  Start at the narrow widths first and work up.
@@ -93,33 +118,6 @@ $_breakpoint13: 1921px 1920px;
 $_breakpoint14: 2049px 2048px;
 $_breakpoint15: 2561px 2560px;
 
-//
-// Assign a grid width to each device constant
-// 
-// The values you assign here come from the second list value in $_breakpoint...
-//
-// THIS IS A TEMPLATE AND SHOULD BE COPIED, NOT EDITED
-//
-// YOU MAY SAFELY DELETE ANY VARIABLES THAT YOU DO NOT INTEND TO USE.
-//
-// @type {px}
-///
-$mini:        240px;
-$mobile_p:    320px;
-$mobile_l:    480px;
-$tablet_7:    600px;
-$iphone_p:    640px;
-$tablet_10:   720px;
-$tablet_p:    768px;
-$iphone4_l:   960px;
-$desktop:     1024px;
-$iphone5_l:   1136px;
-$desktop_w:   1280px;
-$retina_p:    1536px;
-$desktop_hd:  1920px;
-$retina_l:    2048px;
-$desktop_xw:  2560px;
-
 // 
 // Reverse the effects of @include last
 // 
@@ -129,6 +127,18 @@ $desktop_xw:  2560px;
 
 //
 // Apply necessary media queries to target a single device:
+// 
+// Be aware this has to be called INSIDE a css declaration; the following will
+// not work.  So media queries are still necessary.
+// 
+// @code
+//   @include target_device($desktop) {
+//     .some-class {
+//       display: block;
+//       background-color: #073A70; 
+//     }   
+//   }
+// @endcode
 // 
 // @param {px} $device A device constant.
 // 
@@ -170,7 +180,7 @@ $desktop_xw:  2560px;
       }
     }
   }
-  @elseif $max == $media_max_top {
+  @elseif ($max + 1px) == $media_max_top {
     @if $min == 0 {
       @media only screen {
         @content;
@@ -408,5 +418,60 @@ $desktop_xw:  2560px;
   }
   @else {
     @return nth($_breakpoint2, 1) - 1px;
+  }
+}
+
+//
+// Return the full viewport width for a given device
+// 
+// @param {px}
+// 
+// @return {px}
+// 
+@function viewport_get_width($device) {
+  @if $device >= nth($_breakpoint15, 2) {
+    @return nth($_breakpoint15, 1);
+  }
+  @elseif $device >= nth($_breakpoint14, 2) {
+    @return nth($_breakpoint14, 1);
+  }
+  @elseif $device >= nth($_breakpoint13, 2) {
+    @return nth($_breakpoint13, 1);
+  }
+  @elseif $device >= nth($_breakpoint12, 2) {
+    @return nth($_breakpoint12, 1);
+  }
+  @elseif $device >= nth($_breakpoint11, 2) {
+    @return nth($_breakpoint11, 1);
+  }
+  @elseif $device >= nth($_breakpoint10, 2) {
+    @return nth($_breakpoint10, 1);
+  }
+  @elseif $device >= nth($_breakpoint9, 2) {
+    @return nth($_breakpoint9, 1);
+  }
+  @elseif $device >= nth($_breakpoint8, 2) {
+    @return nth($_breakpoint8, 1);
+  }
+  @elseif $device >= nth($_breakpoint7, 2) {
+    @return nth($_breakpoint7, 1);
+  }
+  @elseif $device >= nth($_breakpoint6, 2) {
+    @return nth($_breakpoint6, 1);
+  }
+  @elseif $device >= nth($_breakpoint5, 2) {
+    @return nth($_breakpoint5, 1);
+  }
+  @elseif $device >= nth($_breakpoint4, 2) {
+    @return nth($_breakpoint4, 1);
+  }
+  @elseif $device >= nth($_breakpoint3, 2) {
+    @return nth($_breakpoint3, 1);
+  }
+  @elseif $device >= nth($_breakpoint2, 2) {
+    @return nth($_breakpoint2, 1);
+  }
+  @elseif $device >= nth($_breakpoint1, 2) {
+    @return nth($_breakpoint1, 1);
   }
 }

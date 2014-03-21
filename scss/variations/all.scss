@@ -1,4 +1,6 @@
-@import "loft_compass/loft";
+@import "compass";
+@import "blueprint/grid";
+@import "loft_compass/loft_compass";
 @import "loft_compass/layout";
 
 $base_color: #ddd;

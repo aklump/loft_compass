@@ -1,15 +1,4 @@
-@import "compass";
-@import "blueprint";
-@import "loft_compass/layout";
-
-//
-// In a typical implementation, you will not use all 15 possible breakpoints.
-// Instead you will redefine them like the following.  Notice that you have to
-// Set all breakpoints beyond those you will use to the $extreme_max.
-
 @import "typical";
-
-
 
 // Start the declarations
 $min: grid_init(24, 10px, $desktop);

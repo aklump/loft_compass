@@ -1,46 +1,8 @@
-@import "loft_compass/loft";
+@import "compass";
+@import "blueprint";
+@import "loft_compass/loft_compass";
 @import "loft_compass/layout";
-
-//
-// In a typical implementation, you will not use all 15 possible breakpoints.
-// Instead you will redefine them like the following.  Notice that you have to
-// Set all breakpoints beyond those you will use to the maximum which is $media_max_top.
-
-// Redefine the breakpoints and grid widths
-$_breakpoint1:    0 312px; 
-$_breakpoint2:    320px 312px;
-$_breakpoint3:    480px 474px;
-$_breakpoint4:    768px 762px;
-$_breakpoint5:    960px 960px;
-$_breakpoint6:    $media_max_top $media_max_top;
-$_breakpoint7:    $media_max_top $media_max_top;
-$_breakpoint8:    $media_max_top $media_max_top;
-$_breakpoint9:    $media_max_top $media_max_top;
-$_breakpoint10:   $media_max_top $media_max_top;
-$_breakpoint11:   $media_max_top $media_max_top;
-$_breakpoint12:   $media_max_top $media_max_top;
-$_breakpoint13:   $media_max_top $media_max_top;
-$_breakpoint14:   $media_max_top $media_max_top;
-$_breakpoint15:   $media_max_top $media_max_top;
-
-//
-// The next step is to define the width of our design for each device that we
-// intend to use.  When using the grid aspect, this becomes the outer grid
-// width.
-// 
-// You will pass these variables as the width argument to these functions:
-//   - grid_init()
-//   - grid_set_width()
-//   - grid_media_min()
-//   - grid_media_max()
-
-// Define the design widths for the devices we intend to use.
-// These numbers should match the grid widths defined in $_breakpoint...
-// The values shown below work great with a 10px margin between columns.
-$desktop: 960px;
-$tablet_p: 762px;
-$mobile_l: 474px;
-$mobile_p: 312px;
+@import "layout_base";
 
 //
 // It is only convention that the class takes it's name from the variable list

@@ -1,0 +1,46 @@
+//
+// The first step is to define the width of design for each device that we
+// intend to use.  From henceforth you will use this as "device constants".
+// A full list of device constants can be found in loft_compass/_layout.scss.
+// Let it be noted, there is nothing magical about these names, they can be
+// changed, the master list is only provided for illustration and convention.
+// Name these as you see fit.
+// 
+// You will pass these variables as the device/size argument in these functions:
+//   - grid_init()
+//   - grid_set_width()
+//   - grid_media_min()
+//   - grid_media_max()
+//   - target_device()
+//   
+$mobile_p: 312px;
+$mobile_l: 474px;
+$tablet_p: 762px;
+$desktop: 960px;
+
+//
+// In a typical implementation, you will not use all 15 possible breakpoints, so
+// the next step is to redefine the as seen below.  There are a few things to 
+// bear in mind.
+// 
+// 1. The first list item for each breakpoint is the min width
+// 2. The second list item is the grid width; IT MUST MATCH A VALUE DEFINED
+// ABOVE AS A DEVICE DESIGN WIDTH!
+// 3. You have to set any breakpoints above those you intend to use with the
+// $media_max_top var, as shown.
+// 
+$_breakpoint1:    0 312px; 
+$_breakpoint2:    320px 312px;
+$_breakpoint3:    480px 474px;
+$_breakpoint4:    768px 762px;
+$_breakpoint5:    960px 960px;
+$_breakpoint6:    $media_max_top $media_max_top;
+$_breakpoint7:    $media_max_top $media_max_top;
+$_breakpoint8:    $media_max_top $media_max_top;
+$_breakpoint9:    $media_max_top $media_max_top;
+$_breakpoint10:   $media_max_top $media_max_top;
+$_breakpoint11:   $media_max_top $media_max_top;
+$_breakpoint12:   $media_max_top $media_max_top;
+$_breakpoint13:   $media_max_top $media_max_top;
+$_breakpoint14:   $media_max_top $media_max_top;
+$_breakpoint15:   $media_max_top $media_max_top;

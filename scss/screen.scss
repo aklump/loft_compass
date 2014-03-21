@@ -33,18 +33,22 @@ nav ul {
   padding: 50px 0;
   @include font_size(3rem);
 }
-.column1, .column2, .column3 {
-  height: 175px;
+
+.tiles {
+  .column1, .column2, .column3 {
+    height: 175px;
+  }
+  .column1 {
+    background-color: #0080C9;
+  }
+  .column2 {
+    background-color: #009E2D;
+  }
+  .column3 {
+    background-color: #FECC00;
+  }
 }
-.column1 {
-  background-color: #0080C9;
-}
-.column2 {
-  background-color: #009E2D;
-}
-.column3 {
-  background-color: #FECC00;
-}
+  
 .responsive-images img {
   @include responsive_img;
 }

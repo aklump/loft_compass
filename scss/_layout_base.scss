@@ -17,6 +17,7 @@ $mobile_p: 312px;
 $mobile_l: 474px;
 $tablet_p: 762px;
 $desktop: 960px;
+$widescreen: 1080px;
 
 //
 // In a typical implementation, you will not use all 15 possible breakpoints, so
@@ -33,8 +34,8 @@ $_breakpoint1:    0 312px;
 $_breakpoint2:    320px 312px;
 $_breakpoint3:    480px 474px;
 $_breakpoint4:    768px 762px;
-$_breakpoint5:    960px 960px;
-$_breakpoint6:    $media_max_top $media_max_top;
+$_breakpoint5:    1024px 960px;
+$_breakpoint6:    1536px 1080px;
 $_breakpoint7:    $media_max_top $media_max_top;
 $_breakpoint8:    $media_max_top $media_max_top;
 $_breakpoint9:    $media_max_top $media_max_top;

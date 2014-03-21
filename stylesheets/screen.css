@@ -60,19 +60,16 @@ nav ul li.last {
   font-size: 3rem;
 }
 
-.column1, .column2, .column3 {
+.tiles .column1, .tiles .column2, .tiles .column3 {
   height: 175px;
 }
-
-.column1 {
+.tiles .column1 {
   background-color: #0080C9;
 }
-
-.column2 {
+.tiles .column2 {
   background-color: #009E2D;
 }
-
-.column3 {
+.tiles .column3 {
   background-color: #FECC00;
 }
 

@@ -11,27 +11,34 @@
 // Notice in these examples instead of using @media query, we us the 
 // target_device mixin.  Compare this to all.scss
 // 
-.desktop {
-  @include target_device($desktop) {
+
+.mobile-p {
+  @include target_device($mobile_p) {
     display: block;
-    background-color: #073A70;    
-  }
-}
-.tablet-p {
-  @include target_device($tablet_p) {
-    display: block;
-    background-color: #0080C9;    
+    background-color: #B44D8B;    
   }
 }
 .mobile-l {
   @include target_device($mobile_l) {
     display: block;
-    background-color: #88BCE2;      
+    background-color: #9157C1;      
   }
 }
-.mobile-p {
-  @include target_device($mobile_p) {
+.tablet-p {
+  @include target_device($tablet_p) {
     display: block;
-    background-color: #C8E1C2;    
+    background-color: #3B69C1;    
+  }
+}
+.desktop {
+  @include target_device($desktop) {
+    display: block;
+    background-color: #4FB0C1;    
+  }
+}
+.widescreen {
+  @include target_device($widescreen) {
+    display: block;
+    background-color: #55B473;    
   }
 }

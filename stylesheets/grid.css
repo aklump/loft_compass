@@ -1,5 +1,5 @@
 .container {
-  width: 302px;
+  width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
@@ -10,7 +10,7 @@ header {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 302px;
+  width: 950px;
 }
 * html .full-width, * html
 header {
@@ -21,7 +21,7 @@ header {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 94px;
+  width: 310px;
 }
 * html .column1 {
   overflow-x: hidden;
@@ -31,7 +31,7 @@ header {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 94px;
+  width: 310px;
 }
 * html .column2 {
   overflow-x: hidden;
@@ -41,7 +41,7 @@ header {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 94px;
+  width: 310px;
 }
 * html .column3 {
   overflow-x: hidden;
@@ -51,7 +51,33 @@ header {
   overflow: hidden;
 }
 
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+@media screen and (min-width: 0px) and (max-width: 479px) {
+  .container {
+    width: 302px;
+    margin: 0 auto;
+    overflow: hidden;
+    *zoom: 1;
+  }
+
+  .full-width,
+  header,
+  .column1,
+  .column2,
+  .column3 {
+    display: inline;
+    float: left;
+    margin-right: 0;
+    width: 302px;
+  }
+  * html .full-width, * html
+  header, * html
+  .column1, * html
+  .column2, * html
+  .column3 {
+    overflow-x: hidden;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 767px) {
   .container {
     width: 464px;
     margin: 0 auto;
@@ -101,7 +127,7 @@ header {
     overflow-x: hidden;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .container {
     width: 752px;
     margin: 0 auto;
@@ -151,57 +177,7 @@ header {
     overflow-x: hidden;
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1535px) {
-  .container {
-    width: 950px;
-    margin: 0 auto;
-    overflow: hidden;
-    *zoom: 1;
-  }
-
-  .full-width,
-  header {
-    display: inline;
-    float: left;
-    margin-right: 10px;
-    width: 950px;
-  }
-  * html .full-width, * html
-  header {
-    overflow-x: hidden;
-  }
-
-  .column1 {
-    display: inline;
-    float: left;
-    margin-right: 10px;
-    width: 310px;
-  }
-  * html .column1 {
-    overflow-x: hidden;
-  }
-
-  .column2 {
-    display: inline;
-    float: left;
-    margin-right: 10px;
-    width: 310px;
-  }
-  * html .column2 {
-    overflow-x: hidden;
-  }
-
-  .column3 {
-    display: inline;
-    float: left;
-    margin-right: 0;
-    width: 310px;
-  }
-  * html .column3 {
-    overflow-x: hidden;
-  }
-}
-@media only screen and (min-width: 1536px) and (max-width: 99999px) {
+@media screen and (min-width: 1536px) and (max-width: 99999px) {
   .container {
     width: 1070px;
     margin: 0 auto;

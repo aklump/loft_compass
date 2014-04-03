@@ -5,9 +5,12 @@
 
 $base_color: #ddd;
 
+// This file uses the more verbose form, rather than target_device() mixing
+// Compare to typical.scss to see the difference.
+
 $min: grid_media_min($desktop_xw);
 $max: grid_media_max($desktop_xw);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .desktop-xw {
     display: block;
     background-color: shade($base_color, 5);
@@ -16,7 +19,7 @@ $max: grid_media_max($desktop_xw);
 
 $min: grid_media_min($retina_l);
 $max: grid_media_max($retina_l);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .retina-l {
     display: block;
     background-color: shade($base_color, 10);
@@ -25,7 +28,7 @@ $max: grid_media_max($retina_l);
 
 $min: grid_media_min($desktop_hd);
 $max: grid_media_max($desktop_hd);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .desktop-hd {
     display: block;
     background-color: shade($base_color, 15);
@@ -34,7 +37,7 @@ $max: grid_media_max($desktop_hd);
 
 $min: grid_media_min($retina_p);
 $max: grid_media_max($retina_p);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .retina-p {
     display: block;
     background-color: shade($base_color, 20);
@@ -43,7 +46,7 @@ $max: grid_media_max($retina_p);
 
 $min: grid_media_min($desktop_w);
 $max: grid_media_max($desktop_w);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .desktop-w {
     display: block;
     background-color: shade($base_color, 25);
@@ -52,7 +55,7 @@ $max: grid_media_max($desktop_w);
 
 $min: grid_media_min($iphone5_l);
 $max: grid_media_max($iphone5_l);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .iphone5-l {
     display: block;
     background-color: shade($base_color, 30);
@@ -61,7 +64,7 @@ $max: grid_media_max($iphone5_l);
 
 $min: grid_media_min($desktop);
 $max: grid_media_max($desktop);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .desktop {
     display: block;
     background-color: shade($base_color, 35);
@@ -70,7 +73,7 @@ $max: grid_media_max($desktop);
 
 $min: grid_media_min($iphone4_l);
 $max: grid_media_max($iphone4_l);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .iphone4-l {
     display: block;
     background-color: shade($base_color, 40);
@@ -79,7 +82,7 @@ $max: grid_media_max($iphone4_l);
 
 $min: grid_media_min($tablet_p);
 $max: grid_media_max($tablet_p);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .tablet-p {
     display: block;
     background-color: shade($base_color, 45);
@@ -88,7 +91,7 @@ $max: grid_media_max($tablet_p);
 
 $min: grid_media_min($tablet_10);
 $max: grid_media_max($tablet_10);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .tablet-10 {
     display: block;
     background-color: shade($base_color, 50);
@@ -97,7 +100,7 @@ $max: grid_media_max($tablet_10);
 
 $min: grid_media_min($iphone_p);
 $max: grid_media_max($iphone_p);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .iphone-p {
     display: block;
     background-color: shade($base_color, 55);
@@ -106,7 +109,7 @@ $max: grid_media_max($iphone_p);
 
 $min: grid_media_min($tablet_7);
 $max: grid_media_max($tablet_7);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .tablet-7 {
     display: block;
     background-color: shade($base_color, 60);
@@ -115,7 +118,7 @@ $max: grid_media_max($tablet_7);
 
 $min: grid_media_min($mobile_l);
 $max: grid_media_max($mobile_l);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .mobile-l {
     display: block;
     background-color: shade($base_color, 65);
@@ -124,7 +127,7 @@ $max: grid_media_max($mobile_l);
 
 $min: grid_media_min($mobile_p);
 $max: grid_media_max($mobile_p);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .mobile-p {
     display: block;
     background-color: shade($base_color, 70);
@@ -133,7 +136,7 @@ $max: grid_media_max($mobile_p);
 
 $min: grid_media_min($mini);
 $max: grid_media_max($mini);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .mini {
     display: block;
     background-color: shade($base_color, 75);

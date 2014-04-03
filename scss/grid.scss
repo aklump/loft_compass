@@ -2,8 +2,9 @@
 @import "loft_compass/layout";
 @import "layout_base";
 
-// Start the declarations with mobile first
-$min: grid_init(24, 10px, $mobile_p);
+// For maximum compatability with legacy browsers, design for desktop
+// and then apply media queries for other screen sizes.
+$min: grid_init(24, 10px, $desktop);
 .container {
   @include container;
 }
@@ -22,12 +23,26 @@ header {
 }
 .column1, .column2, .column3 {
   overflow: hidden;
-} 
+}
 
-// Mobile Landscape
+$min: grid_set_width($mobile_p);
+$max: grid_media_max($mobile_p);
+@media screen and (min-width: $min) and (max-width: $max) {
+  .container {
+    @include container;
+  }
+  .full-width,
+  header,
+  .column1,
+  .column2,
+  .column3 {
+    @include column($grid_columns, true);
+  }  
+}  
+
 $min: grid_set_width($mobile_l);
 $max: grid_media_max($mobile_l);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .container {
     @include container;
   }
@@ -46,10 +61,9 @@ $max: grid_media_max($mobile_l);
   }
 }  
 
-// Tablet Portrait
 $min: grid_set_width($tablet_p);
 $max: grid_media_max($tablet_p);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .container {
     @include container;
   }
@@ -68,34 +82,9 @@ $max: grid_media_max($tablet_p);
   }
 }
 
-
-// Mobile Portrait
-$min: grid_set_width($desktop);
-$max: grid_media_max($desktop);
-@media only screen and (min-width: $min) and (max-width: $max) {
-  .container {
-    @include container;
-  }
-  .full-width,
-  header {
-    @include column($grid_columns);
-  }  
-  .column1 {
-    @include column($grid_columns / 3);
-  }
-  .column2 {
-    @include column($grid_columns / 3);
-  }
-  .column3 {
-    @include column($grid_columns / 3, true);
-  }
-} 
-
-
-// Mobile Portrait
 $min: grid_set_width($widescreen);
 $max: grid_media_max($widescreen);
-@media only screen and (min-width: $min) and (max-width: $max) {
+@media screen and (min-width: $min) and (max-width: $max) {
   .container {
     @include container;
   }

@@ -155,7 +155,7 @@ $_breakpoint15: 2561px 2560px;
 // @code
 //   $min: grid_media_min($desktop);
 //   $max: grid_media_max($desktop);
-//   @media only screen and (min-width: $min) and (max-width: $max) {
+//   @media screen and (min-width: $min) and (max-width: $max) {
 //     .desktop {
 //       display: block;
 //       background-color: #073A70; 
@@ -170,30 +170,30 @@ $_breakpoint15: 2561px 2560px;
   $max: grid_media_max($device);
   @if $min == 0 {
     @if $max == $media_max_top {
-      @media only screen {
+      @media screen {
         @content;
       }          
     }
     @else {
-      @media only screen and (max-width: $max) {
+      @media screen and (max-width: $max) {
         @content;
       }
     }
   }
   @elseif ($max + 1px) == $media_max_top {
     @if $min == 0 {
-      @media only screen {
+      @media screen {
         @content;
       }
     }        
     @else {
-      @media only screen and (min-width: $min) {
+      @media screen and (min-width: $min) {
         @content;
       }        
     }
   }
   @else {
-    @media only screen and (min-width: $min) and (max-width: $max) {
+    @media screen and (min-width: $min) and (max-width: $max) {
       @content;
     }
   }
@@ -282,7 +282,7 @@ $_breakpoint15: 2561px 2560px;
 //   
 //   $min: grid_set_width($tablet_p);
 //   $max_width: grid_media_max($tablet_p);
-//   @media only screen and (min-width: $min_width) and (max-width: $max_width) {
+//   @media screen and (min-width: $min_width) and (max-width: $max_width) {
 //     // ... now add some css for tablet portrait
 //   }
 

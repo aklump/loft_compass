@@ -10,7 +10,8 @@
 // 
 // Global Vars & Default values
 // 
-// DO NOT change these defaults, you should call grid_init() from
+// DO NOT change these defaults they are here only to declare the variable names
+// and avoid throwing compilor errors. You should call grid_init() from
 // within partials/layout (or somewhere else) and leave these alone.
 // These defaults are required to be here for sass to compile correctly.
 // 
@@ -26,13 +27,19 @@ $grid_size: 950px;
 $media_max_top: 100000px;
 
 //
-// Assign a design width to each device constant
+// Assign a design width to each device constant.
 // 
-// The values you assign here must be used as the second list value in $_breakpoint...
+// The width that is assigned should be the maximum design width for the
+// intended device, it will only be the grid width, if the $margin size is 0.
+// Otherwise the outer grid width will come from this value - $margin_size.
+// 
+// The values you assign here must be used as the second list value in
+//  $_breakpoint...
 //
 // THIS IS A TEMPLATE AND SHOULD BE COPIED, NOT EDITED
 //
-// AFTER COPYING, YOU MAY SAFELY DELETE ANY VARIABLES THAT YOU DO NOT INTEND TO USE.
+// AFTER COPYING, YOU MAY SAFELY DELETE ANY VARIABLES THAT YOU DO NOT INTEND
+//  TO USE.
 //
 // @type {px}
 //
@@ -58,7 +65,7 @@ $desktop_xw:  2560px;
 // The first number in the list is the breakpoint or minimum width of the viewport.
 // List item 1 of $_breakpoint1 must always be 0.
 // 
-// The second number is the grid width for that viewport; it comes from above.
+// The second number is the outer grid width for that viewport; it comes from above.
 // 
 // How to think about this: When the screen is [value 1] wide, the grid
 // should be [value 2] wide.  Start at the narrow widths first and work up.
@@ -103,20 +110,20 @@ $desktop_xw:  2560px;
 // @type {px} {px}
 // 
 $_breakpoint1:   0 240px;
-$_breakpoint2:   321px 320px;
-$_breakpoint3:   481px 480px;
-$_breakpoint4:   601px 600px;
-$_breakpoint5:   641px 640px;
-$_breakpoint6:   721px 720px;
-$_breakpoint7:   769px 768px;
-$_breakpoint8:   961px 960px;
-$_breakpoint9:  1025px 1024px;;
-$_breakpoint10: 1137px 1136px;;
-$_breakpoint11: 1281px 1280px;
-$_breakpoint12: 1537px 1536px;
-$_breakpoint13: 1921px 1920px;
-$_breakpoint14: 2049px 2048px;
-$_breakpoint15: 2561px 2560px;
+$_breakpoint2:   320px 320px;
+$_breakpoint3:   480px 480px;
+$_breakpoint4:   600px 600px;
+$_breakpoint5:   640px 640px;
+$_breakpoint6:   720px 720px;
+$_breakpoint7:   768px 768px;
+$_breakpoint8:   960px 960px;
+$_breakpoint9:  1024px 1024px;;
+$_breakpoint10: 1136px 1136px;;
+$_breakpoint11: 1280px 1280px;
+$_breakpoint12: 1536px 1536px;
+$_breakpoint13: 1920px 1920px;
+$_breakpoint14: 2048px 2048px;
+$_breakpoint15: 2560px 2560px;
 
 // 
 // Reverse the effects of @include last

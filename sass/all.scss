@@ -17,30 +17,12 @@ $max: grid_media_max($desktop_xw);
   }
 }
 
-$min: grid_media_min($retina_l);
-$max: grid_media_max($retina_l);
-@media screen and (min-width: $min) and (max-width: $max) {
-  .retina-l {
-    display: block;
-    background-color: shade($base_color, 10);
-  }
-}
-
 $min: grid_media_min($desktop_hd);
 $max: grid_media_max($desktop_hd);
 @media screen and (min-width: $min) and (max-width: $max) {
   .desktop-hd {
     display: block;
     background-color: shade($base_color, 15);
-  }
-}
-
-$min: grid_media_min($retina_p);
-$max: grid_media_max($retina_p);
-@media screen and (min-width: $min) and (max-width: $max) {
-  .retina-p {
-    display: block;
-    background-color: shade($base_color, 20);
   }
 }
 
@@ -71,19 +53,10 @@ $max: grid_media_max($desktop);
   }
 }
 
-$min: grid_media_min($iphone4_l);
-$max: grid_media_max($iphone4_l);
+$min: grid_media_min($ipad_p);
+$max: grid_media_max($ipad_p);
 @media screen and (min-width: $min) and (max-width: $max) {
-  .iphone4-l {
-    display: block;
-    background-color: shade($base_color, 40);
-  }
-}
-
-$min: grid_media_min($tablet_p);
-$max: grid_media_max($tablet_p);
-@media screen and (min-width: $min) and (max-width: $max) {
-  .tablet-p {
+  .ipad-p {
     display: block;
     background-color: shade($base_color, 45);
   }
@@ -98,10 +71,10 @@ $max: grid_media_max($tablet_10);
   }
 }
 
-$min: grid_media_min($iphone_p);
-$max: grid_media_max($iphone_p);
+$min: grid_media_min($iphone5_l);
+$max: grid_media_max($iphone5_l);
 @media screen and (min-width: $min) and (max-width: $max) {
-  .iphone-p {
+  .iphone5-l {
     display: block;
     background-color: shade($base_color, 55);
   }
@@ -116,19 +89,19 @@ $max: grid_media_max($tablet_7);
   }
 }
 
-$min: grid_media_min($mobile_l);
-$max: grid_media_max($mobile_l);
+$min: grid_media_min($iphone4_l);
+$max: grid_media_max($iphone4_l);
 @media screen and (min-width: $min) and (max-width: $max) {
-  .mobile-l {
+  .iphone4-l {
     display: block;
     background-color: shade($base_color, 65);
   }
 }
 
-$min: grid_media_min($mobile_p);
-$max: grid_media_max($mobile_p);
+$min: grid_media_min($iphone_p);
+$max: grid_media_max($iphone_p);
 @media screen and (min-width: $min) and (max-width: $max) {
-  .mobile-p {
+  .iphone-p {
     display: block;
     background-color: shade($base_color, 70);
   }

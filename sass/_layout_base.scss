@@ -13,11 +13,12 @@
 //   - grid_media_max()
 //   - target_device()
 //   
-$mobile_p: 312px;
-$mobile_l: 474px;
-$tablet_p: 762px;
-$desktop: 960px;
-$widescreen: 1080px;
+$iphone_p: 320px;
+$iphone4_l: 480px;
+$iphone5_l: 568px;
+$ipad_p: 768px;
+$desktop: 1024px;
+$widescreen: 1280px;
 
 //
 // In a typical implementation, you will not use all 15 possible breakpoints, so
@@ -30,13 +31,13 @@ $widescreen: 1080px;
 // 3. You have to set any breakpoints above those you intend to use with the
 // $media_max_top var, as shown.
 // 
-$_breakpoint1:    0 312px; 
-$_breakpoint2:    320px 312px;
-$_breakpoint3:    480px 474px;
-$_breakpoint4:    768px 762px;
-$_breakpoint5:    1024px 960px;
-$_breakpoint6:    1536px 1080px;
-$_breakpoint7:    $media_max_top $media_max_top;
+$_breakpoint1:    0 320px; 
+$_breakpoint2:    320px 320px;
+$_breakpoint3:    480px 480px;
+$_breakpoint4:    568px 568px;
+$_breakpoint5:    768px 768px;
+$_breakpoint6:    1024px 1024px;
+$_breakpoint7:    1280px 1280px;
 $_breakpoint8:    $media_max_top $media_max_top;
 $_breakpoint9:    $media_max_top $media_max_top;
 $_breakpoint10:   $media_max_top $media_max_top;

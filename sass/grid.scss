@@ -25,8 +25,8 @@ header {
   overflow: hidden;
 }
 
-$min: grid_set_width($mobile_p);
-$max: grid_media_max($mobile_p);
+$min: grid_set_width($iphone_p);
+$max: grid_media_max($iphone_p);
 @media screen and (min-width: $min) and (max-width: $max) {
   .container {
     @include container;
@@ -40,8 +40,8 @@ $max: grid_media_max($mobile_p);
   }  
 }  
 
-$min: grid_set_width($mobile_l);
-$max: grid_media_max($mobile_l);
+$min: grid_set_width($iphone4_l);
+$max: grid_media_max($iphone4_l);
 @media screen and (min-width: $min) and (max-width: $max) {
   .container {
     @include container;
@@ -61,8 +61,29 @@ $max: grid_media_max($mobile_l);
   }
 }  
 
-$min: grid_set_width($tablet_p);
-$max: grid_media_max($tablet_p);
+$min: grid_set_width($iphone5_l);
+$max: grid_media_max($iphone5_l);
+@media screen and (min-width: $min) and (max-width: $max) {
+  .container {
+    @include container;
+  }
+  .full-width,
+  header {
+    @include column($grid_columns);
+  }  
+  .column1 {
+    @include column($grid_columns / 3);
+  }
+  .column2 {
+    @include column($grid_columns / 3);
+  }
+  .column3 {
+    @include column($grid_columns / 3, true);
+  }
+}  
+
+$min: grid_set_width($ipad_p);
+$max: grid_media_max($ipad_p);
 @media screen and (min-width: $min) and (max-width: $max) {
   .container {
     @include container;

@@ -1,5 +1,5 @@
 .container {
-  width: 950px;
+  width: 1014px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
@@ -10,7 +10,7 @@ header {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 950px;
+  width: 1014px;
 }
 * html .full-width, * html
 header {
@@ -21,7 +21,7 @@ header {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 310px;
+  width: 331.33333px;
 }
 * html .column1 {
   overflow-x: hidden;
@@ -31,7 +31,7 @@ header {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 310px;
+  width: 331.33333px;
 }
 * html .column2 {
   overflow-x: hidden;
@@ -41,7 +41,7 @@ header {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 310px;
+  width: 331.33333px;
 }
 * html .column3 {
   overflow-x: hidden;
@@ -53,7 +53,7 @@ header {
 
 @media screen and (min-width: 0px) and (max-width: 479px) {
   .container {
-    width: 302px;
+    width: 310px;
     margin: 0 auto;
     overflow: hidden;
     *zoom: 1;
@@ -67,7 +67,7 @@ header {
     display: inline;
     float: left;
     margin-right: 0;
-    width: 302px;
+    width: 310px;
   }
   * html .full-width, * html
   header, * html
@@ -77,9 +77,9 @@ header {
     overflow-x: hidden;
   }
 }
-@media screen and (min-width: 480px) and (max-width: 767px) {
+@media screen and (min-width: 480px) and (max-width: 567px) {
   .container {
-    width: 464px;
+    width: 470px;
     margin: 0 auto;
     overflow: hidden;
     *zoom: 1;
@@ -90,7 +90,7 @@ header {
     display: inline;
     float: left;
     margin-right: 10px;
-    width: 464px;
+    width: 470px;
   }
   * html .full-width, * html
   header {
@@ -101,7 +101,7 @@ header {
     display: inline;
     float: left;
     margin-right: 10px;
-    width: 148px;
+    width: 150px;
   }
   * html .column1 {
     overflow-x: hidden;
@@ -111,7 +111,7 @@ header {
     display: inline;
     float: left;
     margin-right: 10px;
-    width: 148px;
+    width: 150px;
   }
   * html .column2 {
     overflow-x: hidden;
@@ -121,7 +121,57 @@ header {
     display: inline;
     float: left;
     margin-right: 0;
-    width: 148px;
+    width: 150px;
+  }
+  * html .column3 {
+    overflow-x: hidden;
+  }
+}
+@media screen and (min-width: 568px) and (max-width: 767px) {
+  .container {
+    width: 558px;
+    margin: 0 auto;
+    overflow: hidden;
+    *zoom: 1;
+  }
+
+  .full-width,
+  header {
+    display: inline;
+    float: left;
+    margin-right: 10px;
+    width: 558px;
+  }
+  * html .full-width, * html
+  header {
+    overflow-x: hidden;
+  }
+
+  .column1 {
+    display: inline;
+    float: left;
+    margin-right: 10px;
+    width: 179.33333px;
+  }
+  * html .column1 {
+    overflow-x: hidden;
+  }
+
+  .column2 {
+    display: inline;
+    float: left;
+    margin-right: 10px;
+    width: 179.33333px;
+  }
+  * html .column2 {
+    overflow-x: hidden;
+  }
+
+  .column3 {
+    display: inline;
+    float: left;
+    margin-right: 0;
+    width: 179.33333px;
   }
   * html .column3 {
     overflow-x: hidden;
@@ -129,7 +179,7 @@ header {
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .container {
-    width: 752px;
+    width: 758px;
     margin: 0 auto;
     overflow: hidden;
     *zoom: 1;
@@ -140,7 +190,7 @@ header {
     display: inline;
     float: left;
     margin-right: 10px;
-    width: 752px;
+    width: 758px;
   }
   * html .full-width, * html
   header {
@@ -151,7 +201,7 @@ header {
     display: inline;
     float: left;
     margin-right: 10px;
-    width: 244px;
+    width: 246px;
   }
   * html .column1 {
     overflow-x: hidden;
@@ -161,7 +211,7 @@ header {
     display: inline;
     float: left;
     margin-right: 10px;
-    width: 244px;
+    width: 246px;
   }
   * html .column2 {
     overflow-x: hidden;
@@ -171,15 +221,15 @@ header {
     display: inline;
     float: left;
     margin-right: 0;
-    width: 244px;
+    width: 246px;
   }
   * html .column3 {
     overflow-x: hidden;
   }
 }
-@media screen and (min-width: 1536px) and (max-width: 99999px) {
+@media screen and (min-width: 1280px) and (max-width: 99999px) {
   .container {
-    width: 1070px;
+    width: 1270px;
     margin: 0 auto;
     overflow: hidden;
     *zoom: 1;
@@ -190,7 +240,7 @@ header {
     display: inline;
     float: left;
     margin-right: 10px;
-    width: 1070px;
+    width: 1270px;
   }
   * html .full-width, * html
   header {
@@ -201,7 +251,7 @@ header {
     display: inline;
     float: left;
     margin-right: 10px;
-    width: 350px;
+    width: 416.66667px;
   }
   * html .column1 {
     overflow-x: hidden;
@@ -211,7 +261,7 @@ header {
     display: inline;
     float: left;
     margin-right: 10px;
-    width: 350px;
+    width: 416.66667px;
   }
   * html .column2 {
     overflow-x: hidden;
@@ -221,7 +271,7 @@ header {
     display: inline;
     float: left;
     margin-right: 0;
-    width: 350px;
+    width: 416.66667px;
   }
   * html .column3 {
     overflow-x: hidden;

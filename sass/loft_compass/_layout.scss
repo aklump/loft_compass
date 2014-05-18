@@ -27,7 +27,15 @@ $grid_size: 950px;
 $media_max_top: 100000px;
 
 //
-// Assign a design width to each device constant.
+//  STEP ONE: Define the devices.
+//  
+//  Make a list of your devices and their widths.  This list becomes your
+//  device constants that are passed to functions.
+//  
+//  The width that you assign to the device variable will most likely be
+//  the width it reports back as it the css pixel width of the device.  In some
+//  cases, you may record a value smaller if your design for the target device
+//  occupies less width than it's full width.
 // 
 // The width that is assigned should be the maximum design width for the
 // intended device, it will only be the grid width, if the $margin size is 0.
@@ -44,26 +52,23 @@ $media_max_top: 100000px;
 // @type {px}
 //
 $mini:        240px;
-$mobile_p:    320px;
-$mobile_l:    480px;
+$iphone_p:    320px;
+$iphone4_l:   480px;
+$iphone5_l:   568px;
 $tablet_7:    600px;
-$iphone_p:    640px;
 $tablet_10:   720px;
-$tablet_p:    768px;
-$iphone4_l:   960px;
+$ipad_p:      768px;
 $desktop:     1024px;
-$iphone5_l:   1136px;
 $desktop_w:   1280px;
-$retina_p:    1536px;
 $desktop_hd:  1920px;
-$retina_l:    2048px;
 $desktop_xw:  2560px;
 
 // 
-// Define the breakpoints and grid widths
+// STEP TWO: Define the breakpoints
 // 
-// The first number in the list is the breakpoint or minimum width of the viewport.
-// List item 1 of $_breakpoint1 must always be 0.
+// 1. $_breakpoint1 is special, so set it to 0 {width of most narrow device}.
+// 2. The next breakpoint is the screen width of your first device.
+// 3. Each additional breakpoint is the screen width of your next device.
 // 
 // The second number is the outer grid width for that viewport; it comes from above.
 // 
@@ -88,8 +93,8 @@ $desktop_xw:  2560px;
 // Here is an example of typical usage; for those breakpoints you will not
 // be using you must set as $media_max_top $media_max_top.
 // 
-//   $_breakpoint1:    0 312px; 
-//   $_breakpoint2:    320px 312px;
+//   $_breakpoint1:    0 320px; 
+//   $_breakpoint2:    320px 320px;
 //   $_breakpoint3:    480px 474px;
 //   $_breakpoint4:    768px 762px;
 //   $_breakpoint5:    960px 960px;
@@ -110,20 +115,20 @@ $desktop_xw:  2560px;
 // @type {px} {px}
 // 
 $_breakpoint1:   0 240px;
-$_breakpoint2:   320px 320px;
-$_breakpoint3:   480px 480px;
-$_breakpoint4:   600px 600px;
-$_breakpoint5:   640px 640px;
-$_breakpoint6:   720px 720px;
-$_breakpoint7:   768px 768px;
-$_breakpoint8:   960px 960px;
-$_breakpoint9:  1024px 1024px;;
-$_breakpoint10: 1136px 1136px;;
-$_breakpoint11: 1280px 1280px;
-$_breakpoint12: 1536px 1536px;
-$_breakpoint13: 1920px 1920px;
-$_breakpoint14: 2048px 2048px;
-$_breakpoint15: 2560px 2560px;
+$_breakpoint2:   240px 240px;
+$_breakpoint3:   320px 320px;
+$_breakpoint4:   480px 480px;
+$_breakpoint5:   568px 568px;
+$_breakpoint6:   600px 600px;
+$_breakpoint7:   720px 720px;
+$_breakpoint8:   768px 768px;
+$_breakpoint9:  1024px 1024px;
+$_breakpoint10: 1280px 1280px;
+$_breakpoint11: 1920px 1920px;
+$_breakpoint12: 2560px 2560px;
+$_breakpoint13: $media_max_top $media_max_top;
+$_breakpoint14: $media_max_top $media_max_top;
+$_breakpoint15: $media_max_top $media_max_top;
 
 // 
 // Reverse the effects of @include last
@@ -287,8 +292,8 @@ $_breakpoint15: 2560px 2560px;
 //   $width: grid_set_width($desktop);
 //   // ... add some css for desktop width
 //   
-//   $min: grid_set_width($tablet_p);
-//   $max_width: grid_media_max($tablet_p);
+//   $min: grid_set_width($ipad_p);
+//   $max_width: grid_media_max($ipad_p);
 //   @media screen and (min-width: $min_width) and (max-width: $max_width) {
 //     // ... now add some css for tablet portrait
 //   }

@@ -12,33 +12,39 @@
 // target_device mixin.  Compare this to all.scss
 // 
 
-.mobile-p {
-  @include target_device($mobile_p) {
+.iphone-p {
+  @include target_device($iphone_p) {
     display: block;
     background-color: #B44D8B;    
   }
 }
-.mobile-l {
-  @include target_device($mobile_l) {
+.iphone4-l {
+  @include target_device($iphone4_l) {
     display: block;
     background-color: #9157C1;      
   }
 }
-.tablet-p {
-  @include target_device($tablet_p) {
+.iphone5-l {
+  @include target_device($iphone5_l) {
     display: block;
     background-color: #3B69C1;    
+  }
+}
+.ipad-p {
+  @include target_device($ipad_p) {
+    display: block;
+    background-color: #4FB0C1;    
   }
 }
 .desktop {
   @include target_device($desktop) {
     display: block;
-    background-color: #4FB0C1;    
+    background-color: #55B473;    
   }
 }
 .widescreen {
   @include target_device($widescreen) {
     display: block;
-    background-color: #55B473;    
+    background-color: #6bff92;    
   }
 }

@@ -7,20 +7,35 @@
 // @param $line_height
 //   Optional, behaves same as $size
 // 
-@mixin font_size($size, $line_height: false){
+@mixin font_size($size, $line_height: false, $important: false){
   $rem_ratio: 16px / 1rem;
 
   $unit: unit($size);
-  @if $unit == 'rem' {
-    font-size: $size * $rem_ratio;
-    font-size: $size;
+  @if $important {
+    @if $unit == 'rem' {
+      font-size: $size * $rem_ratio !important;
+      font-size: $size !important;
+    }
+    @else if $unit == 'px' {
+      font-size: $size !important;
+      font-size: $size / $rem_ratio !important;
+    }
+    @else {
+      font-size: $size !important;
+    }    
   }
-  @else if $unit == 'px' {
-    font-size: $size;
-    font-size: $size / $rem_ratio;
-  }
-  @else {
-    font-size: $size;
+  else {
+    @if $unit == 'rem' {
+      font-size: $size * $rem_ratio;
+      font-size: $size;
+    }
+    @else if $unit == 'px' {
+      font-size: $size;
+      font-size: $size / $rem_ratio;
+    }
+    @else {
+      font-size: $size;
+    }    
   }
 
   @if $line_height {

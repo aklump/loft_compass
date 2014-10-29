@@ -9,8 +9,8 @@
 // 
 @mixin font_size($size, $line_height: false, $important: false){
   $rem_ratio: 16px / 1rem;
-
   $unit: unit($size);
+  
   @if $important {
     @if $unit == 'rem' {
       font-size: $size * $rem_ratio !important;
@@ -24,7 +24,7 @@
       font-size: $size !important;
     }    
   }
-  else {
+  @else {
     @if $unit == 'rem' {
       font-size: $size * $rem_ratio;
       font-size: $size;

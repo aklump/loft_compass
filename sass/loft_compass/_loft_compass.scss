@@ -1,3 +1,26 @@
+//
+// Defines the media query for determining if this is a retina display.
+$retina: "(-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 3/2), (min--moz-device-pixel-ratio: 2), (min-device-pixel-ratio: 2), (min-resolution: 144dppx)";
+
+
+//
+// Sets the default suffix to be used for retina stuff.  Some convention
+// uses @2x, but this seems like a bad idea for at least two reasons:
+// 
+// 1. sprite candidates cannot be named using '@'
+// 2. '@' for a filename should be reserved for the user part of an url.
+// 
+$retina_suffix: '-2x' !default;
+
+// 
+// Due to a requirement that sprites cannot contain the char '@', the retina
+// suffix $retina_suffix uses -2x instead of @2x.
+// 
+
+$sprite_map_retina: sprite-map("retina_sprite/*.png", $layout: smart, $sprite-dimensions: true) !default;
+
+$sprite_hover_suffix: '_hover' !default;
+
 // 
 // Output font-size (and line-height) in rem with px fallback
 // 
@@ -73,4 +96,110 @@
   width: 100%;
   height: auto;
   vertical-align: bottom;
+}
+
+//
+// Generates the CSS needed for a background image with retina support.
+// 
+// If the image is called 'select-bg.png' then we're expecting another retina
+// image with the exact same aspect ratio, twice the size under the filename
+// 'select-bg@2x.png'.
+// 
+// @param $filename string The filename of the low res bg image, without ext.
+// @param $ext string The extension of the bg file without the '.'.
+// 
+// @see $retina_suffix
+// 
+@mixin retina_background($filename, $ext) {
+  background-image: image_url($filename + '.' + $ext);
+  $height: image-height($filename + '.' + $ext);
+  $width: image-width($filename + '.' + $ext);
+  @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 3/2), (min--moz-device-pixel-ratio: 2), (min-device-pixel-ratio: 2), (min-resolution: 144dppx) {
+      background-image: image_url($filename + $retina_suffix + '.' + $ext);
+      background-size: $width $height;
+  }  
+}
+
+//
+// Generates the CSS for a retina sprite.
+// 
+// @param $sprite string The filename of the sprite, less extension.
+// @param $sprite_map string Optional, defaults to $sprite_map_retina.  Pass
+//   an alternate sprite map if desired.
+//   
+// Place sprite candidates into images/retina_sprites/*.png and use the
+// following for the high def images/retina_sprites/*-2x.png.
+// 
+// @see $sprite_map_retina
+// @see $retina_suffix
+// 
+@mixin retina_sprite($sprite, $sprite-map: $sprite_map_retina) {
+  $sprite-high-res: #{$sprite}#{$retina_suffix};
+  background-image: sprite-url($sprite-map);
+  background-position: sprite-position($sprite-map, $sprite);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  height: image-height(sprite-file($sprite-map, $sprite));
+  width: image-width(sprite-file($sprite-map, $sprite));
+  
+  @if sprite_has_selector($sprite-map, $sprite, hover){
+    &:hover {
+      $sprite-hover: #{$sprite}#{$sprite_hover_suffix};
+      background-position: sprite-position($sprite-map, $sprite-hover);
+    }
+  }
+
+  @media #{$retina} {
+    background-size: (image-width(sprite-path($sprite-map)) / 2) (image-height(sprite-path($sprite-map)) / 2);
+    background-position: round(nth(sprite-position($sprite-map, $sprite-high-res), 1) / 2) round(nth(sprite-position($sprite-map, $sprite-high-res), 2) / 2);
+    height: image-height(sprite-file($sprite-map, $sprite));
+    width: image-width(sprite-file($sprite-map, $sprite));
+
+    @if sprite_has_selector($sprite-map, $sprite-high-res, hover){
+      &:hover {
+        $sprite-high-res-hover: #{$sprite-high-res}#{$sprite_hover_suffix};
+        background-position: sprite-position($sprite-high-res-map, $sprite-hover);
+      }
+    }        
+  }
+}
+
+//
+// Sets the padding for left and right to the same.
+// 
+// @param mixed $padding
+// 
+@mixin hpadding($padding) {
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+//
+// Sets the padding for top and bottom to the same.
+// 
+// @param mixed $padding
+// 
+@mixin vpadding($padding) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+//
+// Sets the margin for left and right to the same.
+// 
+// @param mixed $margin
+// 
+@mixin hmargin($margin) {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+//
+// Sets the margin for top and bottom to the same.
+// 
+// @param mixed $margin
+// 
+@mixin vmargin($margin) {
+  margin-top: $margin;
+  margin-bottom: $margin;
 }

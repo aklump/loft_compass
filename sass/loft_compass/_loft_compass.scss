@@ -203,3 +203,15 @@ $sprite_hover_suffix: '_hover' !default;
   margin-top: $margin;
   margin-bottom: $margin;
 }
+
+//
+// Convert pixels to inches
+// 
+// @param float $inches
+// 
+// @return float The value in pixels.
+// 
+$px_to_inches_dpi: 96 !default;
+@function px_to_inches($inches) {
+  @return ($inches * $px_to_inches_dpi) * 1px;
+}

@@ -17,7 +17,9 @@ $retina_suffix: '-2x' !default;
 // suffix $retina_suffix uses -2x instead of @2x.
 // 
 
-$sprite_map_retina: sprite-map("retina_sprite/*.png", $layout: smart, $sprite-dimensions: true) !default;
+// Uncomment this next line after you create 'retinat_sprite/' with one or more
+// image files in there.
+//$sprite_map_retina: sprite-map("retina_sprite/*.png", $layout: smart, $sprite-dimensions: true) !default;
 
 $sprite_hover_suffix: '_hover' !default;
 

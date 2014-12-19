@@ -211,7 +211,7 @@ $sprite_hover_suffix: '_hover' !default;
 // 
 // @return float The value in pixels.
 // 
-$px_to_inches_dpi: 96 !default;
-@function px_to_inches($inches) {
-  @return ($inches * $px_to_inches_dpi) * 1px;
+$inches_to_px_dpi: 96 !default;
+@function inches_to_px($inches) {
+  @return ($inches * $inches_to_px_dpi) * 1px;
 }

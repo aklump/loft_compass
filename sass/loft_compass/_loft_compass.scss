@@ -206,6 +206,13 @@ $sprite_hover_suffix: '_hover' !default;
   margin-bottom: $margin;
 }
 
+@mixin center() {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;  
+}
+
 //
 // Convert pixels to inches
 // 

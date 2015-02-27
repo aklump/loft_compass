@@ -32,8 +32,9 @@ $sprite_hover_suffix: '_hover' !default;
 // @param $line_height
 //   Optional, behaves same as $size
 // 
+$font_size_root_element: 16px !default;
 @mixin font_size($size, $line_height: false, $important: false){
-  $rem_ratio: 16px / 1rem;
+  $rem_ratio: $font_size_root_element / 1rem;
   $unit: unit($size);
   
   @if $important {

@@ -74,7 +74,8 @@ nav ul li.last {
 }
 
 .responsive-images img {
-  width: 100%;
+  max-width: 100%;
+  width: auto;
   height: auto;
   vertical-align: bottom;
 }

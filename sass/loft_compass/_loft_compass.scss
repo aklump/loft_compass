@@ -66,16 +66,31 @@ $font_size_root_element: 16px !default;
 
   @if $line_height {
     $unit: unit($line_height);
-    @if $unit == 'rem' {
-      line-height: $line_height * $rem_ratio;
-      line-height: $line_height;
-    }
-    @else if $unit == 'px' {
-      line-height: $line_height;
-      line-height: $line_height / $rem_ratio;
+    @if $important {
+      @if $unit == 'rem' {
+        line-height: $line_height * $rem_ratio !important;
+        line-height: $line_height !important;
+      }
+      @else if $unit == 'px' {
+        line-height: $line_height !important;
+        line-height: $line_height / $rem_ratio !important;
+      }
+      @else {
+        line-height: $line_height !important;
+      }
     }
     @else {
-      line-height: $line_height;
+      @if $unit == 'rem' {
+        line-height: $line_height * $rem_ratio;
+        line-height: $line_height;
+      }
+      @else if $unit == 'px' {
+        line-height: $line_height;
+        line-height: $line_height / $rem_ratio;
+      }
+      @else {
+        line-height: $line_height;
+      }      
     }
   }
 }

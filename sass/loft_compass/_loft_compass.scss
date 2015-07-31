@@ -29,22 +29,38 @@ $sprite_hover_suffix: '_hover' !default;
 // @param $size
 //   rem and px: will be converted to rem with px fallback
 //   % and em will pass through without conversion
+//   vw and vh: you will need to send a fallback value like this:
+//   font_size(14.125vw 22px, ...);
 // @param $line_height
 //   Optional, behaves same as $size
 // 
 $font_size_root_element: 16px !default;
 @mixin font_size($size, $line_height: false, $important: false){
-  $rem_ratio: $font_size_root_element / 1rem;
+  $_rem_ratio: $font_size_root_element / 1rem;
+
+  $_fallback: "";
+  @if type-of($size) == list {
+    $_fallback: nth($size, 2);
+    $size: nth($size, 1);
+  }
+
   $unit: unit($size);
   
   @if $important {
     @if $unit == 'rem' {
-      font-size: $size * $rem_ratio !important;
+      font-size: $size * $_rem_ratio !important;
       font-size: $size !important;
     }
     @else if $unit == 'px' {
       font-size: $size !important;
-      font-size: $size / $rem_ratio !important;
+      font-size: $size / $_rem_ratio !important;
+    }
+    @else if $unit == 'vw' or $unit == 'vh' {
+      @if $_fallback == "" {
+        @error "vm or vh units must have a fallback"
+      }      
+      @include font_size($_fallback, $line_height, $important);
+      font-size: $size  !important;
     }
     @else {
       font-size: $size !important;
@@ -52,13 +68,20 @@ $font_size_root_element: 16px !default;
   }
   @else {
     @if $unit == 'rem' {
-      font-size: $size * $rem_ratio;
+      font-size: $size * $_rem_ratio;
       font-size: $size;
     }
     @else if $unit == 'px' {
       font-size: $size;
-      font-size: $size / $rem_ratio;
+      font-size: $size / $_rem_ratio;
     }
+    @else if $unit == 'vw' or $unit == 'vh' {
+      @if $_fallback == "" {
+        @error "vm or vh units must have a fallback"
+      }
+      @include font_size($_fallback);
+      font-size: $size;
+    }    
     @else {
       font-size: $size;
     }    
@@ -68,12 +91,12 @@ $font_size_root_element: 16px !default;
     $unit: unit($line_height);
     @if $important {
       @if $unit == 'rem' {
-        line-height: $line_height * $rem_ratio !important;
+        line-height: $line_height * $_rem_ratio !important;
         line-height: $line_height !important;
       }
       @else if $unit == 'px' {
         line-height: $line_height !important;
-        line-height: $line_height / $rem_ratio !important;
+        line-height: $line_height / $_rem_ratio !important;
       }
       @else {
         line-height: $line_height !important;
@@ -81,12 +104,12 @@ $font_size_root_element: 16px !default;
     }
     @else {
       @if $unit == 'rem' {
-        line-height: $line_height * $rem_ratio;
+        line-height: $line_height * $_rem_ratio;
         line-height: $line_height;
       }
       @else if $unit == 'px' {
         line-height: $line_height;
-        line-height: $line_height / $rem_ratio;
+        line-height: $line_height / $_rem_ratio;
       }
       @else {
         line-height: $line_height;
@@ -108,13 +131,23 @@ $font_size_root_element: 16px !default;
 }
 
 //
-// A mixin to make an img responsive
+// A mixin to make an img responsive.
 // 
-@mixin responsive_img() {
-  max-width: 100%;
-  width: auto;
+// Will not grow beyond native width of image unless you specify $full = true.
+// 
+@mixin responsive_img($full: false) {
   height: auto;
   vertical-align: bottom;
+  display: block;
+  margin: auto;
+  @if $full == true {
+    max-width: auto;
+    width: 100%;    
+  }
+  @else {
+    max-width: 100%;
+    width: auto;    
+  }
 }
 
 //
@@ -228,6 +261,51 @@ $font_size_root_element: 16px !default;
   text-align: center;
   margin-left: auto;
   margin-right: auto;  
+}
+
+//
+// Apply height/width to an element to maintain an aspect ratio.
+// 
+// The element should have a direct child with the class .inner
+// 
+// @code 
+//   <div class="parent"><div class="inner"></div></div>
+// 
+//   .parent {
+//     @include aspect_ratio(4, 3);
+//   }
+// @endcode
+// 
+// @param number $x May be a ratio like .65 or the x value of a ratio, e.g. 4
+// @param number $y Optional Use if passing a ratio as two numbers; the y value.
+//
+@mixin aspect_ratio($x, $y: "") {
+  $ratio: $x;
+  @if $y != "" {
+    $ratio: $y / $x;  
+  }
+  width: 100%;
+  position: relative;
+  height: 0;
+  padding: $ratio * 100% 0 0 0;
+  overflow: hidden;
+
+  &>.inner {
+    @include aspect_ratio_inner; 
+  }
+}
+
+//
+//
+// Helper to 'aspect_ratio', if .inner is not a direct child or is called
+// something other than .inner
+//
+@mixin aspect_ratio_inner() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;   
 }
 
 //

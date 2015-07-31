@@ -1,5 +1,5 @@
 name = "Loft Compass"
 description = "Extends Compass SASS Framework."
 homepage = http://www.intheloftstudios.com/packages/sass/loft_compass
-version = "0.1.18"
+version = "0.1.19"
 author = Aaron Klump <sourcecode@intheloftstudios.com>

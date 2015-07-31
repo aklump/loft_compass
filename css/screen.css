@@ -78,4 +78,6 @@ nav ul li.last {
   width: auto;
   height: auto;
   vertical-align: bottom;
+  display: block;
+  margin: auto;
 }
